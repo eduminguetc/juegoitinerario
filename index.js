@@ -619,20 +619,19 @@ const finalIncorrectEl = document.getElementById('final-incorrect');
 function loadQuestions() {
     // Simula una carga asíncrona aunque los datos ya están disponibles
     return new Promise((resolve, reject) => {
-        if (allQuestionsData && allQuestionsData.questions) {
+        if (allQuestionsData && allQuestionsData.questions && Array.isArray(allQuestionsData.questions)) {
             gameState.questions = allQuestionsData.questions;
             resolve();
         } else {
-            console.error("No se pudieron cargar las preguntas desde la constante interna.");
-            if (startScreen && !gameScreen.classList.contains('hidden')) {
+            console.error("No se pudieron cargar las preguntas desde la constante interna o el formato es incorrecto.");
+            // Intentar mostrar error en la UI si es posible
+            if (startScreen && !gameScreen.classList.contains('hidden')) { // Solo si la pantalla de inicio está activa
                  startScreen.innerHTML = `
                     <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error de Carga</h1>
                     <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas del juego. Problema con los datos internos.</p>
                 `;
-            } else if (questionTextEl) {
-                questionTextEl.textContent = "Error al cargar preguntas. Datos internos no disponibles.";
             }
-            reject(new Error("Datos de preguntas no encontrados en la constante interna."));
+            reject(new Error("Datos de preguntas no encontrados o en formato incorrecto en la constante interna."));
         }
     });
 }
@@ -645,26 +644,34 @@ function loadQuestions() {
  */
 function selectNewQuestions() {
     // Filtra las preguntas que ya se usaron en la última partida
-    const availableQuestions = gameState.questions.filter(
+    let availableQuestions = gameState.questions.filter(
         q => !gameState.lastGameQuestionIds.includes(q.id)
     );
 
-    // Si no hay suficientes preguntas "nuevas", se usa todo el banco de preguntas.
-    // Esto asegura que siempre haya suficientes preguntas para una partida.
-    const questionsToPickFrom = availableQuestions.length >= TOTAL_QUESTIONS_PER_GAME 
-        ? availableQuestions 
-        : gameState.questions;
+    // Si no hay suficientes preguntas únicas disponibles que no se hayan usado en la última partida
+    if (availableQuestions.length < TOTAL_QUESTIONS_PER_GAME) {
+        // Si el problema es que se filtraron demasiadas, y el banco total SÍ tiene suficientes,
+        // entonces permitimos repetir preguntas de partidas anteriores reseteando el filtro.
+        if (gameState.questions.length >= TOTAL_QUESTIONS_PER_GAME) {
+            console.warn("No hay suficientes preguntas únicas no vistas recientemente. Permitiendo repetición de preguntas de partidas anteriores.");
+            availableQuestions = gameState.questions; // Usar todo el banco de preguntas
+            // No reseteamos lastGameQuestionIds aquí, se hará en startGame si es necesario
+            // para la lógica de "no repetir inmediatamente".
+        } else {
+            // Si el banco total de preguntas es menor que las necesarias para una partida.
+            console.error("El banco total de preguntas es menor que TOTAL_QUESTIONS_PER_GAME.");
+            return []; // Devolver array vacío para que startGame lo maneje
+        }
+    }
 
     // Mezcla las preguntas disponibles de forma aleatoria
-    const shuffled = [...questionsToPickFrom].sort(() => 0.5 - Math.random());
+    const shuffled = [...availableQuestions].sort(() => 0.5 - Math.random());
     // Selecciona el número de preguntas necesarias para la partida
     const selected = shuffled.slice(0, TOTAL_QUESTIONS_PER_GAME);
     
-    // Actualiza la lista de IDs de preguntas usadas para el próximo juego
-    gameState.lastGameQuestionIds = selected.map(q => q.id);
+    // Devolvemos las seleccionadas. La actualización de lastGameQuestionIds se hará en startGame.
     return selected;
 }
-
 /**
  * Inicia una nueva partida del juego.
  * Reinicia el estado del juego y muestra la primera pregunta.
@@ -673,24 +680,34 @@ function startGame() {
     gameState.currentQuestionIndex = 0;
     gameState.scoreCorrect = 0;
     gameState.scoreIncorrect = 0;
-    gameState.currentQuestionSet = selectNewQuestions(); // Esto debe usar las preguntas ya cargadas en gameState.questions
     
-    // Verificar si hay preguntas disponibles para el juego
-    if (!gameState.currentQuestionSet || gameState.currentQuestionSet.length < TOTAL_QUESTIONS_PER_GAME) {
+    const selectedQuestions = selectNewQuestions();
+
+    // Verificar si se pudieron seleccionar suficientes preguntas
+    if (!selectedQuestions || selectedQuestions.length < TOTAL_QUESTIONS_PER_GAME) {
         console.error("No hay suficientes preguntas para iniciar una nueva partida.");
-        if (startScreen && !gameScreen.classList.contains('hidden')) {
-            startScreen.innerHTML = `
-                <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">No hay suficientes preguntas</h1>
-                <p class="text-gray-600 mb-8 text-lg">No se pueden iniciar más partidas sin repetir preguntas inmediatamente o no hay suficientes preguntas en total. Por favor, añade más preguntas.</p>
-            `;
+        // Asegurarse de que la pantalla de inicio sea visible para mostrar el error
+        startScreen.classList.remove('hidden');
+        gameScreen.classList.add('hidden');
+        endScreen.classList.add('hidden');
+        startScreen.innerHTML = `
+            <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Preguntas Insuficientes</h1>
+            <p class="text-gray-600 mb-8 text-lg">No hay suficientes preguntas en el banco para iniciar una partida de ${TOTAL_QUESTIONS_PER_GAME}. Por favor, añade más preguntas.</p>
+            <button id="reload-page-btn" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">Recargar</button>
+        `;
+        // Añadir event listener para un posible botón de recarga
+        const reloadBtn = document.getElementById('reload-page-btn');
+        if (reloadBtn) {
+            reloadBtn.addEventListener('click', () => window.location.reload());
         }
-        // Podrías optar por reiniciar lastGameQuestionIds aquí si quieres permitir repeticiones
-        // gameState.lastGameQuestionIds = []; 
-        // gameState.currentQuestionSet = selectNewQuestions(); // Y volver a intentar seleccionar
-        // if (!gameState.currentQuestionSet || gameState.currentQuestionSet.length < TOTAL_QUESTIONS_PER_GAME) return; // Si aún falla, no iniciar
         return; 
     }
-
+    
+    gameState.currentQuestionSet = selectedQuestions;
+    // Actualizar las IDs de las preguntas usadas para ESTA partida.
+    // Si se jugó antes y se tuvieron que repetir todas, lastGameQuestionIds se vaciará aquí.
+    // Si se pudo seleccionar sin repetir de la última, se actualiza con las nuevas.
+    gameState.lastGameQuestionIds = gameState.currentQuestionSet.map(q => q.id); 
 
     gameState.gamePhase = 'playing';
     
@@ -698,8 +715,8 @@ function startGame() {
     startScreen.classList.add('hidden');
     endScreen.classList.add('hidden');
     gameScreen.classList.remove('hidden');
-    gameContainer.classList.remove('max-w-md'); // Si estaba en pantalla final
-    gameContainer.classList.add('max-w-2xl'); // Tamaño estándar para el juego
+    gameContainer.classList.remove('max-w-md'); 
+    gameContainer.classList.add('max-w-2xl');
 
     displayQuestion();
     updateScoreDisplay();
@@ -854,19 +871,34 @@ playAgainBtn.addEventListener('click', () => {
 
 // Carga las preguntas cuando el contenido del DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', async () => {
-    // La función loadQuestions ahora es síncrona en efecto, pero la mantenemos como promesa
-    // para coherencia si en el futuro se quisiera volver a cargar de un archivo.
     try {
-        await loadQuestions();
-        // Verifica si se cargaron preguntas; si no, muestra un error.
-        if (gameState.questions.length === 0 && startScreen && !gameScreen.classList.contains('hidden')) {
+        await loadQuestions(); // Asegura que gameState.questions esté poblado
+        
+        // Verificar si hay preguntas en total y si startGameBtn existe
+        if (gameState.questions.length === 0) {
+            if (startScreen && !gameScreen.classList.contains('hidden')) { // Solo si la pantalla de inicio está activa
+                 startScreen.innerHTML = `
+                    <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error de Carga Inicial</h1>
+                    <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas del juego. La base de datos interna parece estar vacía o con errores.</p>
+                `;
+            }
+            return; // No añadir event listener si no hay preguntas
+        }
+        
+        // Si hay preguntas y el botón existe, se añade el event listener
+        if (startGameBtn) {
+            startGameBtn.addEventListener('click', startGame);
+        } else {
+            console.error("El botón de inicio (startGameBtn) no se encontró en el DOM.");
+        }
+
+    } catch (error) {
+        console.error("Error inicial al cargar preguntas:", error);
+        if (startScreen && !gameScreen.classList.contains('hidden')) { // Solo si la pantalla de inicio está activa
              startScreen.innerHTML = `
-                <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error</h1>
-                <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas. Datos internos no encontrados.</p>
+                <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error Crítico</h1>
+                <p class="text-gray-600 mb-8 text-lg">Ocurrió un error al cargar los datos necesarios para el juego.</p>
             `;
         }
-    } catch (error) {
-        // El error ya se maneja dentro de loadQuestions para la UI, aquí solo log a consola
-        console.error("Error final al intentar cargar preguntas:", error);
     }
 });
