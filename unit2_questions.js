@@ -1,6 +1,7 @@
-{
-    "unit": 2,
-    "questions": [
+// questions/unit2_questions.js
+
+// Array de preguntas para la Unidad 2
+export const unit2Questions = [
         {
             "id": 2001,
             "questionText": "Según la OMS, ¿qué tres dimensiones principales incorpora la definición de salud?",
