@@ -362,4 +362,4 @@ export const unit6Questions = [
             "correctAnswerIndex": 1,
             "explanation": "La solicitud de mediación, conciliación o reclamación previa ante el SMAC (o el órgano autonómico correspondiente) es un trámite obligatorio antes de interponer una demanda judicial en la mayoría de los conflictos laborales individuales."
         }
-    ]
+    ];
