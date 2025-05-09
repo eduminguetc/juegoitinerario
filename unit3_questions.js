@@ -1,6 +1,7 @@
-{
-    "unit": 3,
-    "questions": [
+// questions/unit3_questions.js
+
+// Array de preguntas para la Unidad 7
+export const unit3Questions = [
         {
             "id": 3001,
             "questionText": "¿Cuál es la principal ley en España que establece el marco normativo básico de la prevención de riesgos laborales?",
