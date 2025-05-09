@@ -1,6 +1,6 @@
 // index.js
 
-// ... (importaciones y constantes iniciales como estaban) ...
+// ... (Todas tus importaciones y constantes iniciales como estaban)
 // import { unit1Questions } from './unit1_questions.js';
 // ... etc.
 
@@ -8,12 +8,68 @@
 // const NUM_UNITS = 9;
 // ... etc.
 
-// const allQuestions = [ ... ];
-// const gameState = { ... };
-// const gameContainer = ... ;
-// ... etc. ...
+// const allQuestions = [ ... ]; // Tu banco de preguntas combinado
 
-// function loadQuestions() { ... } // Sin cambios respecto a la última versión
+// Estado inicial del juego
+const gameState = {
+    questions: [],
+    currentQuestionIndex: 0,
+    scoreCorrect: 0,
+    scoreIncorrect: 0,
+    currentQuestionSet: [],
+    lastGameQuestionIds: [],
+    gamePhase: 'start',
+    selectedAnswerIndex: null,
+    timerId: null,
+};
+
+// Obtención de elementos del DOM (estas declaraciones deben estar aquí, al principio)
+const gameContainer = document.getElementById('game-container');
+const startScreen = document.getElementById('start-screen');
+const gameScreen = document.getElementById('game-screen');
+const endScreen = document.getElementById('end-screen');
+
+const startGameBtn = document.getElementById('start-game-btn'); // Se usará en DOMContentLoaded
+const questionCounterEl = document.getElementById('question-counter');
+const correctScoreEl = document.getElementById('correct-score');
+const incorrectScoreEl = document.getElementById('incorrect-score');
+const questionTextEl = document.getElementById('question-text');
+const optionsContainerEl = document.getElementById('options-container');
+const feedbackMessageEl = document.getElementById('feedback-message');
+const explanationTextEl = document.getElementById('explanation-text');
+const nextQuestionBtn = document.getElementById('next-question-btn'); // Se usará en DOMContentLoaded
+const playAgainBtn = document.getElementById('play-again-btn'); // Se usará en DOMContentLoaded
+const finalCorrectEl = document.getElementById('final-correct');
+const finalIncorrectEl = document.getElementById('final-incorrect');
+
+
+// --- Todas tus funciones del juego (loadQuestions, selectNewQuestions, startGame, displayQuestion, handleAnswer, nextQuestion, updateScoreDisplay, endGame) deben estar definidas ANTES del bloque DOMContentLoaded ---
+// ... (Pega aquí todas tus funciones del juego como las tenías en la última versión funcional)
+
+/**
+ * Carga las preguntas desde la constante allQuestions combinada.
+ */
+function loadQuestions() {
+    return new Promise((resolve, reject) => {
+        if (allQuestions && Array.isArray(allQuestions)) {
+            gameState.questions = allQuestions;
+            console.log("Preguntas cargadas desde módulos:", gameState.questions.length);
+            if (gameState.questions.length === 0) {
+                console.warn("Advertencia: El array combinado de preguntas está vacío.");
+            }
+            resolve();
+        } else {
+            console.error("Error: El array combinado 'allQuestions' no es un array o no está definido.");
+            if (startScreen && !gameScreen.classList.contains('hidden')) {
+                 startScreen.innerHTML = `
+                    <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error de Carga</h1>
+                    <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas. Problema con los datos internos.</p>
+                `;
+            }
+            reject(new Error("Datos de preguntas combinados no encontrados o en formato incorrecto."));
+        }
+    });
+}
 
 /**
  * Selecciona un nuevo conjunto de preguntas para una partida,
@@ -26,22 +82,15 @@ function selectNewQuestions() {
     const selectedQuestionsForGame = [];
     const tempLastGameQuestionIds = new Set(gameState.lastGameQuestionIds);
 
-    // 1. Agrupar todas las preguntas por unidad
     const questionsByUnit = {};
     for (let i = 1; i <= NUM_UNITS; i++) {
-        // MODIFICACIÓN AQUÍ: Convertir q.unit a número antes de comparar
         questionsByUnit[i] = gameState.questions.filter(q => Number(q.unit) === i); 
         if (questionsByUnit[i].length === 0) {
             console.error(`Error: La unidad ${i} no tiene preguntas definidas en el banco total o la propiedad 'unit' no coincide (se esperaba ${i}).`);
-            // Para depurar, puedes mostrar algunas preguntas que SÍ se cargaron:
-            // if (i === 1 && gameState.questions.length > 0) {
-            //     console.log("Primeras preguntas en gameState.questions:", gameState.questions.slice(0, 5).map(q => ({id: q.id, unit: q.unit}) ));
-            // }
             return []; 
         }
     }
 
-    // 2. Seleccionar preguntas garantizadas (una por unidad)
     const guaranteedPicksIds = new Set(); 
 
     for (let unitNum = 1; unitNum <= NUM_UNITS; unitNum++) {
@@ -60,7 +109,6 @@ function selectNewQuestions() {
         const randomIndex = Math.floor(Math.random() * unitQuestionsPool.length);
         const pickedQuestion = unitQuestionsPool[randomIndex];
         
-        // Verificar que pickedQuestion no sea undefined
         if (!pickedQuestion) {
             console.error(`Error: No se pudo seleccionar una pregunta para la unidad ${unitNum}. Pool de la unidad:`, unitQuestionsPool);
             return [];
@@ -70,7 +118,6 @@ function selectNewQuestions() {
         guaranteedPicksIds.add(pickedQuestion.id);
     }
 
-    // 3. Seleccionar preguntas restantes aleatoriamente
     if (NUM_RANDOM_FILL_QUESTIONS > 0) {
         let remainingPool = gameState.questions.filter(q => 
             !guaranteedPicksIds.has(q.id) && !tempLastGameQuestionIds.has(q.id)
@@ -91,20 +138,12 @@ function selectNewQuestions() {
         }
     }
     
-    // 4. Mezcla final del conjunto de preguntas seleccionadas
     const finalShuffledSet = [...selectedQuestionsForGame].sort(() => 0.5 - Math.random());
     
     console.log("Preguntas seleccionadas para la partida:", finalShuffledSet.length);
     return finalShuffledSet.slice(0, TOTAL_QUESTIONS_PER_GAME); 
 }
 
-// --- EL RESTO DE LAS FUNCIONES DEL JUEGO (startGame, displayQuestion, etc.) ---
-// --- PERMANECEN IGUAL QUE EN LA ÚLTIMA VERSIÓN ---
-// ... (pega aquí el resto de tus funciones startGame, displayQuestion, handleAnswer, etc. sin cambios)
-
-/**
- * Inicia una nueva partida.
- */
 function startGame() {
     console.log("Intentando iniciar juego...");
     gameState.currentQuestionIndex = 0;
@@ -126,7 +165,6 @@ function startGame() {
         } else if (gameState.questions.length < TOTAL_QUESTIONS_PER_GAME) {
              errorMessage = `Se necesitan ${TOTAL_QUESTIONS_PER_GAME} preguntas y solo hay ${gameState.questions.length} en total.`;
         }
-
 
         startScreen.innerHTML = `
             <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Preguntas Insuficientes</h1>
@@ -154,9 +192,6 @@ function startGame() {
     updateScoreDisplay();
 }
 
-/**
- * Muestra la pregunta actual.
- */
 function displayQuestion() {
     if (!gameState.currentQuestionSet || gameState.currentQuestionSet.length === 0 || gameState.currentQuestionIndex >= gameState.currentQuestionSet.length) {
         endGame();
@@ -202,9 +237,6 @@ function displayQuestion() {
     });
 }
 
-/**
- * Maneja la respuesta del usuario.
- */
 function handleAnswer(selectedIndex) {
     if (gameState.gamePhase !== 'playing') return; 
 
@@ -249,9 +281,6 @@ function handleAnswer(selectedIndex) {
     updateScoreDisplay(); 
 }
 
-/**
- * Avanza a la siguiente pregunta.
- */
 function nextQuestion() {
     clearTimeout(gameState.timerId); 
     gameState.currentQuestionIndex++;
@@ -262,17 +291,11 @@ function nextQuestion() {
     }
 }
 
-/**
- * Actualiza la visualización de la puntuación.
- */
 function updateScoreDisplay() {
     correctScoreEl.textContent = gameState.scoreCorrect.toString();
     incorrectScoreEl.textContent = gameState.scoreIncorrect.toString();
 }
 
-/**
- * Finaliza la partida.
- */
 function endGame() {
     gameState.gamePhase = 'end';
     gameScreen.classList.add('hidden'); 
@@ -282,16 +305,6 @@ function endGame() {
 
     finalCorrectEl.textContent = gameState.scoreCorrect.toString();
     finalIncorrectEl.textContent = gameState.scoreIncorrect.toString();
-}
-
-// Event Listeners
-if (nextQuestionBtn) {
-    nextQuestionBtn.addEventListener('click', nextQuestion);
-}
-if (playAgainBtn) {
-    playAgainBtn.addEventListener('click', () => {
-        startGame();
-    });
 }
 
 // Carga inicial y configuración
@@ -312,11 +325,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             return; 
         }
         
+        // Mover la asignación de event listeners aquí, DESPUÉS de que los elementos del DOM están garantizados y las preguntas cargadas.
         if (startGameBtn) {
             console.log("Añadiendo event listener al botón de inicio.");
             startGameBtn.addEventListener('click', startGame);
         } else {
             console.error("El botón de inicio (startGameBtn) no se encontró en el DOM.");
+        }
+
+        if (nextQuestionBtn) {
+            nextQuestionBtn.addEventListener('click', nextQuestion);
+        } else {
+            console.error("El botón 'Siguiente Pregunta' (nextQuestionBtn) no se encontró en el DOM.");
+        }
+
+        if (playAgainBtn) {
+            playAgainBtn.addEventListener('click', () => {
+                startGame();
+            });
+        } else {
+            console.error("El botón 'Jugar de Nuevo' (playAgainBtn) no se encontró en el DOM.");
         }
 
     } catch (error) {
