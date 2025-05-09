@@ -1,6 +1,7 @@
-{
-    "unit": 6,
-    "questions": [
+// questions/unit6_questions.js
+
+// Array de preguntas para la Unidad 6
+export const unit6Questions = [
         {
             "id": 6001,
             "questionText": "La duración máxima de la jornada laboral ordinaria en España, en cómputo anual, es de:",
