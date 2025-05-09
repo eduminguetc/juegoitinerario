@@ -4,6 +4,7 @@
 export const unit2Questions = [
         {
             "id": 2001,
+                "unit": 2,
             "questionText": "Según la OMS, ¿qué tres dimensiones principales incorpora la definición de salud?",
             "options": [
                 "Física, económica y laboral",
@@ -16,6 +17,7 @@ export const unit2Questions = [
         },
         {
             "id": 2002,
+                "unit": 2,
             "questionText": "¿Qué se entiende por 'condiciones de trabajo' en el contexto de la prevención de riesgos?",
             "options": [
                 "Únicamente el salario y el horario laboral.",
@@ -28,6 +30,7 @@ export const unit2Questions = [
         },
         {
             "id": 2003,
+                "unit": 2,
             "questionText": "Para que una enfermedad sea considerada legalmente como 'Enfermedad Profesional' en España, debe estar:",
             "options": [
                 "Diagnosticada por al menos dos médicos especialistas.",
@@ -40,6 +43,7 @@ export const unit2Questions = [
         },
         {
             "id": 2004,
+                "unit": 2,
             "questionText": "Un accidente sufrido al ir o volver del lugar de trabajo se conoce como accidente:",
             "options": [
                 "En misión",
@@ -52,6 +56,7 @@ export const unit2Questions = [
         },
         {
             "id": 2005,
+                "unit": 2,
             "questionText": "¿Cuál de las siguientes situaciones NO se considera accidente de trabajo?",
             "options": [
                 "Una lesión realizando tareas ordenadas por el empresario, aunque no sean las habituales.",
@@ -64,6 +69,7 @@ export const unit2Questions = [
         },
         {
             "id": 2006,
+                "unit": 2,
             "questionText": "El estrés laboral es una respuesta física y emocional al desequilibrio entre las __________ percibidas y las __________ del trabajador para hacerles frente.",
             "options": [
                 "oportunidades / ambiciones",
@@ -76,6 +82,7 @@ export const unit2Questions = [
         },
         {
             "id": 2007,
+                "unit": 2,
             "questionText": "El síndrome caracterizado por agotamiento emocional, despersonalización y baja realización personal debido al estrés crónico laboral se denomina:",
             "options": [
                 "Fatiga laboral aguda",
@@ -88,6 +95,7 @@ export const unit2Questions = [
         },
         {
             "id": 2008,
+                "unit": 2,
             "questionText": "Las agresiones psicológicas reiteradas y prolongadas sobre una o más personas en el lugar de trabajo, por parte de compañeros o superiores/subordinados, se conocen como:",
             "options": [
                 "Conflicto laboral",
@@ -100,6 +108,7 @@ export const unit2Questions = [
         },
         {
             "id": 2009,
+                "unit": 2,
             "questionText": "La posibilidad de que el trabajo o sus condiciones provoquen un daño en la salud del empleado se define como:",
             "options": [
                 "Peligro laboral",
@@ -112,6 +121,7 @@ export const unit2Questions = [
         },
         {
             "id": 2010,
+                "unit": 2,
             "questionText": "En los lugares de trabajo, ¿cuál es la altura mínima general para los locales (excluyendo oficinas)?",
             "options": [
                 "2.0 metros",
@@ -124,6 +134,7 @@ export const unit2Questions = [
         },
         {
             "id": 2011,
+                "unit": 2,
             "questionText": "El ruido se caracteriza por su intensidad, frecuencia y:",
             "options": [
                 "Tono",
@@ -136,6 +147,7 @@ export const unit2Questions = [
         },
         {
             "id": 2012,
+                "unit": 2,
             "questionText": "Las vibraciones que afectan principalmente a la columna vertebral, causando lumbalgias, suelen ser de:",
             "options": [
                 "Muy baja frecuencia (<1 Hz)",
@@ -148,6 +160,7 @@ export const unit2Questions = [
         },
         {
             "id": 2013,
+                "unit": 2,
             "questionText": "Los Rayos X y los rayos gamma son ejemplos de radiaciones:",
             "options": [
                 "No ionizantes de baja frecuencia",
@@ -160,6 +173,7 @@ export const unit2Questions = [
         },
         {
             "id": 2014,
+                "unit": 2,
             "questionText": "Según el RD 486/1997, la temperatura en trabajos sedentarios (oficinas) debe estar entre:",
             "options": [
                 "14°C y 25°C",
@@ -172,6 +186,7 @@ export const unit2Questions = [
         },
         {
             "id": 2015,
+                "unit": 2,
             "questionText": "Un agente químico clasificado como 'Comburente' (O) es aquel que:",
             "options": [
                 "Explota al contacto con el fuego.",
@@ -184,6 +199,7 @@ export const unit2Questions = [
         },
         {
             "id": 2016,
+                "unit": 2,
             "questionText": "¿Cuál de estas NO es una vía de entrada principal de los agentes biológicos al organismo?",
             "options": [
                 "Respiratoria",
@@ -196,6 +212,7 @@ export const unit2Questions = [
         },
         {
             "id": 2017,
+                "unit": 2,
             "questionText": "Los factores psicosociales en el trabajo consisten en interacciones entre el trabajo, su medio ambiente, la organización y:",
             "options": [
                 "Las condiciones económicas del país.",
@@ -208,6 +225,7 @@ export const unit2Questions = [
         },
         {
             "id": 2018,
+                "unit": 2,
             "questionText": "La técnica preventiva que se encarga de adaptar el puesto y el medio de trabajo a las condiciones fisiológicas y psicológicas del trabajador se llama:",
             "options": [
                 "Seguridad en el trabajo",
@@ -220,6 +238,7 @@ export const unit2Questions = [
         },
         {
             "id": 2019,
+                "unit": 2,
             "questionText": "Al manipular manualmente una carga, ¿cuál es la recomendación principal respecto al tronco?",
             "options": [
                 "Girar el tronco rápidamente para ganar impulso.",
@@ -232,6 +251,7 @@ export const unit2Questions = [
         },
         {
             "id": 2020,
+                "unit": 2,
             "questionText": "En un accidente eléctrico, ¿qué factor NO influye directamente en la gravedad del daño?",
             "options": [
                 "Intensidad de la corriente",
@@ -244,6 +264,7 @@ export const unit2Questions = [
         },
         {
             "id": 2021,
+                "unit": 2,
             "questionText": "La 'fatiga laboral' se define como la disminución de la capacidad física y mental que aparece cuando el trabajador:",
             "options": [
                 "Está desmotivado con sus tareas.",
@@ -256,6 +277,7 @@ export const unit2Questions = [
         },
         {
             "id": 2022,
+                "unit": 2,
             "questionText": "El Real Decreto 1299/2006 aprueba:",
             "options": [
                 "Las disposiciones mínimas de seguridad en lugares de trabajo.",
@@ -268,6 +290,7 @@ export const unit2Questions = [
         },
         {
             "id": 2023,
+                "unit": 2,
             "questionText": "Un riesgo laboral se considera 'grave e inminente' cuando es probable que suceda en un futuro muy próximo y suponga un:",
             "options": [
                 "Coste económico elevado para la empresa.",
@@ -280,6 +303,7 @@ export const unit2Questions = [
         },
         {
             "id": 2024,
+                "unit": 2,
             "questionText": "La unidad de medida de la intensidad del ruido es el:",
             "options": [
                 "Hercio (Hz)",
@@ -292,6 +316,7 @@ export const unit2Questions = [
         },
         {
             "id": 2025,
+                "unit": 2,
             "questionText": "Las sustancias químicas que, por inhalación, ingestión o penetración cutánea, pueden producir cáncer o aumentar su frecuencia se denominan:",
             "options": [
                 "Mutagénicas",
@@ -304,6 +329,7 @@ export const unit2Questions = [
         },
         {
             "id": 2026,
+                "unit": 2,
             "questionText": "La vía parenteral de entrada de agentes biológicos al organismo se refiere a:",
             "options": [
                 "Inhalación por nariz o boca.",
@@ -316,6 +342,7 @@ export const unit2Questions = [
         },
         {
             "id": 2027,
+                "unit": 2,
             "questionText": "Una medida preventiva frente al riesgo por vibraciones mano-brazo es:",
             "options": [
                 "Aumentar la presión de agarre de la herramienta.",
@@ -328,6 +355,7 @@ export const unit2Questions = [
         },
         {
             "id": 2028,
+                "unit": 2,
             "questionText": "El confort térmico en un puesto de trabajo se alcanza cuando:",
             "options": [
                 "La temperatura es lo más baja posible.",
@@ -340,6 +368,7 @@ export const unit2Questions = [
         },
         {
             "id": 2029,
+                "unit": 2,
             "questionText": "Al levantar una carga manualmente, ¿dónde deben estar los pies para una postura correcta?",
             "options": [
                 "Juntos y rectos.",
@@ -352,6 +381,7 @@ export const unit2Questions = [
         },
         {
             "id": 2030,
+                "unit": 2,
             "questionText": "La tetanización muscular es un daño que puede ser causado por:",
             "options": [
                 "Exposición prolongada al ruido.",
