@@ -4,6 +4,7 @@
 export const unit3Questions = [
         {
             "id": 3001,
+                "unit": 3,
             "questionText": "¿Cuál es la principal ley en España que establece el marco normativo básico de la prevención de riesgos laborales?",
             "options": [
                 "El Estatuto de los Trabajadores (ET)",
@@ -16,6 +17,7 @@ export const unit3Questions = [
         },
         {
             "id": 3002,
+                "unit": 3,
             "questionText": "Según el artículo 40.2 de la Constitución Española, ¿quiénes tienen la obligación de velar por la seguridad e higiene en el trabajo?",
             "options": [
                 "Los sindicatos exclusivamente",
@@ -28,6 +30,7 @@ export const unit3Questions = [
         },
         {
             "id": 3003,
+                "unit": 3,
             "questionText": "¿Cuál de los siguientes es un deber de la empresa respecto a sus trabajadores en materia de PRL?",
             "options": [
                 "Asumir solo una parte del coste de las medidas de seguridad.",
@@ -40,6 +43,7 @@ export const unit3Questions = [
         },
         {
             "id": 3004,
+                "unit": 3,
             "questionText": "Un trabajador tiene derecho a interrumpir su actividad y abandonar el lugar de trabajo cuando:",
             "options": [
                 "Se sienta cansado.",
@@ -52,6 +56,7 @@ export const unit3Questions = [
         },
         {
             "id": 3005,
+                "unit": 3,
             "questionText": "Si un empresario incumple la normativa de PRL, ¿qué tipo de responsabilidad NO se le podría exigir?",
             "options": [
                 "Administrativa",
@@ -64,6 +69,7 @@ export const unit3Questions = [
         },
         {
             "id": 3006,
+                "unit": 3,
             "questionText": "Los representantes de los trabajadores con funciones específicas en materia de PRL se denominan:",
             "options": [
                 "Delegados Sindicales",
@@ -76,6 +82,7 @@ export const unit3Questions = [
         },
         {
             "id": 3007,
+                "unit": 3,
             "questionText": "El Comité de Seguridad y Salud es un órgano paritario obligatorio en empresas o centros de trabajo con:",
             "options": [
                 "10 o más trabajadores.",
@@ -88,6 +95,7 @@ export const unit3Questions = [
         },
         {
             "id": 3008,
+                "unit": 3,
             "questionText": "Si una empresa de 8 trabajadores, cuya actividad no está en el Anexo I del RD 39/1997, y el empresario trabaja habitualmente en el centro y tiene la formación requerida, ¿puede el empresario asumir personalmente la actividad preventiva?",
             "options": [
                 "No, siempre debe contratar un servicio de prevención ajeno.",
@@ -100,6 +108,7 @@ export const unit3Questions = [
         },
         {
             "id": 3009,
+                "unit": 3,
             "questionText": "Un Servicio de Prevención Propio es obligatorio, entre otros casos, cuando la empresa tiene más de:",
             "options": [
                 "100 trabajadores.",
@@ -112,6 +121,7 @@ export const unit3Questions = [
         },
         {
             "id": 3010,
+                "unit": 3,
             "questionText": "El primer principio de la acción preventiva según el Art. 15 de la LPRL es:",
             "options": [
                 "Evaluar los riesgos que no se puedan evitar.",
@@ -124,6 +134,7 @@ export const unit3Questions = [
         },
         {
             "id": 3011,
+                "unit": 3,
             "questionText": "¿Cuál de estas técnicas preventivas se centra en evitar o controlar los accidentes de trabajo?",
             "options": [
                 "Higiene industrial",
@@ -136,6 +147,7 @@ export const unit3Questions = [
         },
         {
             "id": 3012,
+                "unit": 3,
             "questionText": "Las medidas de protección __________ tienen prioridad sobre las medidas de protección __________.",
             "options": [
                 "individuales / colectivas",
@@ -148,6 +160,7 @@ export const unit3Questions = [
         },
         {
             "id": 3013,
+                "unit": 3,
             "questionText": "Un casco de seguridad, guantes de protección y gafas contra impactos son ejemplos de:",
             "options": [
                 "Medidas de protección colectiva.",
@@ -160,6 +173,7 @@ export const unit3Questions = [
         },
         {
             "id": 3014,
+                "unit": 3,
             "questionText": "¿Qué significa una señal de seguridad de forma triangular con pictograma negro sobre fondo amarillo y borde negro?",
             "options": [
                 "Prohibición",
@@ -172,6 +186,7 @@ export const unit3Questions = [
         },
         {
             "id": 3015,
+                "unit": 3,
             "questionText": "El documento que establece el marco organizativo y funcional de un centro ante posibles emergencias para prevenir y controlar riesgos es el:",
             "options": [
                 "Plan de Evacuación.",
@@ -184,6 +199,7 @@ export const unit3Questions = [
         },
         {
             "id": 3016,
+                "unit": 3,
             "questionText": "En caso de emergencia, la primera acción del protocolo PAS es:",
             "options": [
                 "Avisar a los servicios de emergencia.",
@@ -196,6 +212,7 @@ export const unit3Questions = [
         },
         {
             "id": 3017,
+                "unit": 3,
             "questionText": "El botiquín de primeros auxilios en una empresa debe contener, entre otros elementos:",
             "options": [
                 "Medicamentos con receta para dolencias comunes.",
@@ -208,6 +225,7 @@ export const unit3Questions = [
         },
         {
             "id": 3018,
+                "unit": 3,
             "questionText": "Si una persona está inconsciente pero respira normalmente y no se sospecha traumatismo grave, ¿cuál es la posición recomendada?",
             "options": [
                 "Tumbada boca arriba con las piernas elevadas.",
@@ -220,6 +238,7 @@ export const unit3Questions = [
         },
         {
             "id": 3019,
+                "unit": 3,
             "questionText": "La Maniobra de Heimlich se utiliza para:",
             "options": [
                 "Controlar una hemorragia externa grave.",
@@ -232,6 +251,7 @@ export const unit3Questions = [
         },
         {
             "id": 3020,
+                "unit": 3,
             "questionText": "En la clasificación de heridos por triaje, el color ROJO se asigna a los heridos:",
             "options": [
                 "Leves que pueden esperar.",
@@ -244,6 +264,7 @@ export const unit3Questions = [
         },
         {
             "id": 3021,
+                "unit": 3,
             "questionText": "¿Cuál es el organismo técnico especializado de la Administración General del Estado que tiene como misión el análisis y estudio de las condiciones de seguridad y salud en el trabajo?",
             "options": [
                 "La Inspección de Trabajo y Seguridad Social (ITSS).",
@@ -256,6 +277,7 @@ export const unit3Questions = [
         },
         {
             "id": 3022,
+                "unit": 3,
             "questionText": "La ropa de trabajo común, como uniformes que no ofrecen protección específica contra un riesgo, ¿se considera EPI?",
             "options": [
                 "Sí, siempre que la proporcione la empresa.",
@@ -268,6 +290,7 @@ export const unit3Questions = [
         },
         {
             "id": 3023,
+                "unit": 3,
             "questionText": "El sistema de gestión de la prevención en la empresa debe incluir una fase de __________ para examinar sistemáticamente su eficacia.",
             "options": [
                 "publicidad",
@@ -280,6 +303,7 @@ export const unit3Questions = [
         },
         {
             "id": 3024,
+                "unit": 3,
             "questionText": "Una señal de obligación (fondo azul, pictograma blanco) indica:",
             "options": [
                 "Una advertencia de peligro.",
@@ -292,6 +316,7 @@ export const unit3Questions = [
         },
         {
             "id": 3025,
+                "unit": 3,
             "questionText": "Ante una quemadura grave, ¿cuál de las siguientes acciones es INCORRECTA?",
             "options": [
                 "Alejar a la víctima de la fuente de calor.",
@@ -304,6 +329,7 @@ export const unit3Questions = [
         },
         {
             "id": 3026,
+                "unit": 3,
             "questionText": "El número de Delegados de Prevención en una empresa se determina en función de:",
             "options": [
                 "La facturación anual de la empresa.",
@@ -316,6 +342,7 @@ export const unit3Questions = [
         },
         {
             "id": 3027,
+                "unit": 3,
             "questionText": "Si una empresa contrata un Servicio de Prevención Ajeno, ¿queda eximida de toda responsabilidad en materia de PRL?",
             "options": [
                 "Sí, la responsabilidad se transfiere completamente al servicio ajeno.",
@@ -328,6 +355,7 @@ export const unit3Questions = [
         },
         {
             "id": 3028,
+                "unit": 3,
             "questionText": "La técnica preventiva que se ocupa de los contaminantes ambientales (físicos, químicos, biológicos) para prevenir enfermedades profesionales es la:",
             "options": [
                 "Ergonomía",
@@ -340,6 +368,7 @@ export const unit3Questions = [
         },
         {
             "id": 3029,
+                "unit": 3,
             "questionText": "En el contexto de un plan de emergencias, los equipos de personas encargados de guiar la evacuación se denominan:",
             "options": [
                 "Equipos de Primera Intervención (EPI)",
@@ -352,6 +381,7 @@ export const unit3Questions = [
         },
         {
             "id": 3030,
+                "unit": 3,
             "questionText": "¿Cuál es el objetivo principal al inmovilizar una fractura en primeros auxilios?",
             "options": [
                 "Reducir la fractura y colocar el hueso en su sitio.",
