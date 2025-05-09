@@ -1,6 +1,7 @@
-{
-    "unit": 5,
-    "questions": [
+// questions/unit4_questions.js
+
+// Array de preguntas para la Unidad 4
+export const unit4Questions = [
         {
             "id": 5001,
             "questionText": "¿Cuál es la edad mínima general para que una persona física pueda firmar un contrato de trabajo sin necesidad de autorización de sus padres o tutores?",
