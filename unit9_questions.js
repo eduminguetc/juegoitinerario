@@ -392,4 +392,4 @@ export const unit9Questions = [
         "correctAnswerIndex": 2,
         "explanation": "La Responsabilidad Social Corporativa (RSC) se refiere al compromiso que tienen las empresas de contribuir al desarrollo sostenible y al bienestar de la sociedad en general, considerando el impacto de sus acciones."
     }
-]
+];
