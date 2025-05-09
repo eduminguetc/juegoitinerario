@@ -4,6 +4,7 @@
 export const unit4Questions = [
         {
             "id": 4001,
+                "unit": 4,
             "questionText": "El principio del Derecho Laboral que establece que, en caso de duda en la interpretación de una norma, se aplicará la más favorable al trabajador se llama:",
             "options": [
                 "Principio de Norma Mínima",
@@ -16,6 +17,7 @@ export const unit4Questions = [
         },
         {
             "id": 4002,
+                "unit": 4,
             "questionText": "¿Cuál de las siguientes NO es una característica de la relación laboral ordinaria según el Estatuto de los Trabajadores?",
             "options": [
                 "Voluntaria",
@@ -28,6 +30,7 @@ export const unit4Questions = [
         },
         {
             "id": 4003,
+                "unit": 4,
             "questionText": "El organismo encargado de vigilar el cumplimiento de la legislación laboral y proponer sanciones es:",
             "options": [
                 "El Juzgado de lo Social",
@@ -40,6 +43,7 @@ export const unit4Questions = [
         },
         {
             "id": 4004,
+                "unit": 4,
             "questionText": "El acuerdo suscrito entre representantes de los trabajadores y empresarios para fijar condiciones de trabajo y productividad, con fuerza de ley, es el:",
             "options": [
                 "Contrato de trabajo",
@@ -52,6 +56,7 @@ export const unit4Questions = [
         },
         {
             "id": 4005,
+                "unit": 4,
             "questionText": "La cesación de la prestación de trabajo llevada a cabo de forma colectiva y concertada por los trabajadores se denomina:",
             "options": [
                 "Despido colectivo",
@@ -64,6 +69,7 @@ export const unit4Questions = [
         },
         {
             "id": 4006,
+                "unit": 4,
             "questionText": "Según la jerarquía normativa, ¿cuál de las siguientes fuentes del Derecho del Trabajo tiene un rango superior?",
             "options": [
                 "El Contrato de Trabajo",
@@ -76,6 +82,7 @@ export const unit4Questions = [
         },
         {
             "id": 4007,
+                "unit": 4,
             "questionText": "Un deportista profesional tiene una relación laboral de tipo:",
             "options": [
                 "Ordinaria",
@@ -88,6 +95,7 @@ export const unit4Questions = [
         },
         {
             "id": 4008,
+                "unit": 4,
             "questionText": "El derecho del trabajador a no ser discriminado en el acceso al empleo o una vez ocupado el puesto es un derecho derivado de:",
             "options": [
                 "Únicamente el Convenio Colectivo",
@@ -100,6 +108,7 @@ export const unit4Questions = [
         },
         {
             "id": 4009,
+                "unit": 4,
             "questionText": "Si un conflicto laboral no se resuelve por la vía administrativa (ITSS) o amistosa, ¿a qué órgano se puede acudir?",
             "options": [
                 "Al Defensor del Pueblo",
@@ -112,6 +121,7 @@ export const unit4Questions = [
         },
         {
             "id": 4010,
+                "unit": 4,
             "questionText": "En empresas con menos de 50 trabajadores, la representación unitaria se ejerce a través de:",
             "options": [
                 "El Comité de Empresa",
@@ -124,6 +134,7 @@ export const unit4Questions = [
         },
         {
             "id": 4011,
+                "unit": 4,
             "questionText": "El principio que establece que, si una nueva norma empeora las condiciones de un contrato vigente, prevalecen las del contrato, se llama:",
             "options": [
                 "Principio de Norma Mínima",
@@ -136,6 +147,7 @@ export const unit4Questions = [
         },
         {
             "id": 4012,
+                "unit": 4,
             "questionText": "El trabajo realizado por familiares que convivan con el empresario (hasta 2º grado) se considera, en general:",
             "options": [
                 "Relación laboral ordinaria",
@@ -148,6 +160,7 @@ export const unit4Questions = [
         },
         {
             "id": 4013,
+                "unit": 4,
             "questionText": "El derecho a la 'ocupación efectiva' significa que el trabajador tiene derecho a:",
             "options": [
                 "Un puesto de trabajo con vistas al exterior.",
@@ -160,6 +173,7 @@ export const unit4Questions = [
         },
         {
             "id": 4014,
+                "unit": 4,
             "questionText": "Los sindicatos más representativos a nivel estatal son aquellos que acreditan al menos el ____ del total de delegados de personal y miembros de comité de empresa.",
             "options": [
                 "5%",
@@ -172,6 +186,7 @@ export const unit4Questions = [
         },
         {
             "id": 4015,
+                "unit": 4,
             "questionText": "El ámbito de aplicación de un Convenio Colectivo que se refiere a la rama, sector o actividad a la que afecta, es el ámbito:",
             "options": [
                 "Geográfico",
@@ -184,6 +199,7 @@ export const unit4Questions = [
         },
         {
             "id": 4016,
+                "unit": 4,
             "questionText": "Si un Convenio Colectivo es denunciado y transcurre un año sin nuevo acuerdo ni laudo, ¿qué sucede con su vigencia?",
             "options": [
                 "Se prorroga automáticamente por otro año.",
@@ -196,6 +212,7 @@ export const unit4Questions = [
         },
         {
             "id": 4017,
+                "unit": 4,
             "questionText": "El cierre del centro de trabajo por decisión del empresario como medida de conflicto colectivo se denomina:",
             "options": [
                 "Huelga de celo",
@@ -208,6 +225,7 @@ export const unit4Questions = [
         },
         {
             "id": 4018,
+                "unit": 4,
             "questionText": "En el procedimiento extrajudicial de solución de conflictos, ¿cuál implica que un tercero imparcial toma una decisión vinculante para las partes?",
             "options": [
                 "Negociación",
@@ -220,6 +238,7 @@ export const unit4Questions = [
         },
         {
             "id": 4019,
+                "unit": 4,
             "questionText": "El Estatuto Básico del Empleado Público (EBEP) regula la relación laboral de:",
             "options": [
                 "Los trabajadores autónomos.",
@@ -232,6 +251,7 @@ export const unit4Questions = [
         },
         {
             "id": 4020,
+                "unit": 4,
             "questionText": "La característica de la relación laboral que implica que el trabajador sigue las órdenes y directrices del empresario se denomina:",
             "options": [
                 "Voluntariedad",
@@ -244,6 +264,7 @@ export const unit4Questions = [
         },
         {
             "id": 4021,
+                "unit": 4,
             "questionText": "El derecho a la libre sindicación incluye el derecho a:",
             "options": [
                 "Fundar sindicatos y afiliarse al de su elección.",
@@ -256,6 +277,7 @@ export const unit4Questions = [
         },
         {
             "id": 4022,
+                "unit": 4,
             "questionText": "El Comité de Empresa, como órgano de representación unitaria, se constituye en empresas con:",
             "options": [
                 "Cualquier número de trabajadores.",
@@ -268,6 +290,7 @@ export const unit4Questions = [
         },
         {
             "id": 4023,
+                "unit": 4,
             "questionText": "Una de las garantías de los representantes de los trabajadores es la prioridad de permanencia en la empresa en caso de:",
             "options": [
                 "Solicitud de vacaciones.",
@@ -280,6 +303,7 @@ export const unit4Questions = [
         },
         {
             "id": 4024,
+                "unit": 4,
             "questionText": "Las Secciones Sindicales se constituyen en el ámbito de:",
             "options": [
                 "La provincia.",
@@ -292,6 +316,7 @@ export const unit4Questions = [
         },
         {
             "id": 4025,
+                "unit": 4,
             "questionText": "El contenido mínimo de un Convenio Colectivo debe incluir, entre otros:",
             "options": [
                 "El plan de marketing de la empresa.",
@@ -304,6 +329,7 @@ export const unit4Questions = [
         },
         {
             "id": 4026,
+                "unit": 4,
             "questionText": "Si un trabajador considera que sus derechos laborales están siendo vulnerados, puede presentar una denuncia ante:",
             "options": [
                 "La policía local.",
@@ -316,6 +342,7 @@ export const unit4Questions = [
         },
         {
             "id": 4027,
+                "unit": 4,
             "questionText": "La fuente del Derecho del Trabajo que se crea e impone de manera espontánea por la actividad diaria de trabajadores y empresarios en una localidad o profesión es:",
             "options": [
                 "El Reglamento de la empresa.",
@@ -328,6 +355,7 @@ export const unit4Questions = [
         },
         {
             "id": 4028,
+                "unit": 4,
             "questionText": "Un conflicto laboral que afecta a los intereses generales de un grupo de trabajadores se considera:",
             "options": [
                 "Conflicto individual",
@@ -340,6 +368,7 @@ export const unit4Questions = [
         },
         {
             "id": 4029,
+                "unit": 4,
             "questionText": "La Ley Orgánica 11/1985, de 2 de agosto, desarrolla el derecho fundamental a:",
             "options": [
                 "La huelga.",
@@ -352,6 +381,7 @@ export const unit4Questions = [
         },
         {
             "id": 4030,
+                "unit": 4,
             "questionText": "El 'crédito de horas' es una garantía de los representantes de los trabajadores que consiste en:",
             "options": [
                 "Un préstamo de la empresa para formación.",
