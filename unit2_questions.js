@@ -362,4 +362,4 @@ export const unit2Questions = [
             "correctAnswerIndex": 2,
             "explanation": "El agarrotamiento muscular o tetanización, que es una contracción sostenida de los músculos, es uno de los daños que puede provocar un accidente eléctrico."
         }
-    ]
+    ];
