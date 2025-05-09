@@ -4,6 +4,7 @@
 export const unit5Questions = [
         {
             "id": 5001,
+                "unit": 5,
             "questionText": "¿Cuál es la edad mínima general para que una persona física pueda firmar un contrato de trabajo sin necesidad de autorización de sus padres o tutores?",
             "options": [
                 "16 años",
@@ -16,6 +17,7 @@ export const unit5Questions = [
         },
         {
             "id": 5002,
+                "unit": 5,
             "questionText": "El acuerdo entre empresario y trabajador donde este se compromete a realizar un servicio a cambio de una remuneración se denomina:",
             "options": [
                 "Convenio Colectivo",
@@ -28,6 +30,7 @@ export const unit5Questions = [
         },
         {
             "id": 5003,
+                "unit": 5,
             "questionText": "¿Cuál de estos contratos NO necesita formalizarse por escrito obligatoriamente?",
             "options": [
                 "Contrato fijo discontinuo",
@@ -40,6 +43,7 @@ export const unit5Questions = [
         },
         {
             "id": 5004,
+                "unit": 5,
             "questionText": "La cláusula contractual por la que el trabajador se compromete a no trabajar para empresas competidoras una vez finalizada la relación laboral, a cambio de una compensación, se llama:",
             "options": [
                 "Pacto de confidencialidad",
@@ -52,6 +56,7 @@ export const unit5Questions = [
         },
         {
             "id": 5005,
+                "unit": 5,
             "questionText": "Según la reforma laboral (RD-ley 32/2021), el contrato de trabajo se presume concertado por tiempo:",
             "options": [
                 "Determinado, salvo pacto en contrario.",
@@ -64,6 +69,7 @@ export const unit5Questions = [
         },
         {
             "id": 5006,
+                "unit": 5,
             "questionText": "Un contrato fijo discontinuo se utiliza para trabajos de naturaleza estacional o actividades productivas de temporada que se repiten en fechas:",
             "options": [
                 "Ciertas y determinadas cada año.",
@@ -76,6 +82,7 @@ export const unit5Questions = [
         },
         {
             "id": 5007,
+                "unit": 5,
             "questionText": "El contrato temporal por circunstancias de la producción para atender situaciones ocasionales, PREVISIBLES y de duración reducida, tiene una duración máxima de:",
             "options": [
                 "3 meses al año natural.",
@@ -88,6 +95,7 @@ export const unit5Questions = [
         },
         {
             "id": 5008,
+                "unit": 5,
             "questionText": "El contrato de sustitución para cubrir temporalmente un puesto durante un proceso de selección o promoción tiene una duración máxima de:",
             "options": [
                 "1 mes",
@@ -100,6 +108,7 @@ export const unit5Questions = [
         },
         {
             "id": 5009,
+                "unit": 5,
             "questionText": "¿Cuál es el objetivo principal del contrato para la formación en alternancia?",
             "options": [
                 "Sustituir a un trabajador de baja.",
@@ -112,6 +121,7 @@ export const unit5Questions = [
         },
         {
             "id": 5010,
+                "unit": 5,
             "questionText": "El contrato formativo para la obtención de la práctica profesional se puede celebrar si no han pasado más de ____ años desde la finalización de los estudios (o ____ si es persona con discapacidad).",
             "options": [
                 "1 año / 3 años",
@@ -124,6 +134,7 @@ export const unit5Questions = [
         },
         {
             "id": 5011,
+                "unit": 5,
             "questionText": "El contrato de relevo se utiliza para sustituir la jornada de un trabajador que accede a:",
             "options": [
                 "Una excedencia voluntaria.",
@@ -136,6 +147,7 @@ export const unit5Questions = [
         },
         {
             "id": 5012,
+                "unit": 5,
             "questionText": "En un contrato a tiempo parcial, ¿se pueden realizar horas extraordinarias?",
             "options": [
                 "Sí, sin ningún límite.",
@@ -148,6 +160,7 @@ export const unit5Questions = [
         },
         {
             "id": 5013,
+                "unit": 5,
             "questionText": "La asignación al trabajador de funciones de un grupo profesional inferior, manteniendo el salario de origen, se denomina:",
             "options": [
                 "Movilidad funcional horizontal.",
@@ -160,6 +173,7 @@ export const unit5Questions = [
         },
         {
             "id": 5014,
+                "unit": 5,
             "questionText": "Un cambio de centro de trabajo que obliga al trabajador a cambiar de residencia de forma definitiva se considera:",
             "options": [
                 "Desplazamiento temporal.",
@@ -172,6 +186,7 @@ export const unit5Questions = [
         },
         {
             "id": 5015,
+                "unit": 5,
             "questionText": "¿Cuál de estas NO es una materia considerada modificación sustancial de las condiciones de trabajo según el Art. 41 ET?",
             "options": [
                 "Jornada de trabajo.",
@@ -184,6 +199,7 @@ export const unit5Questions = [
         },
         {
             "id": 5016,
+                "unit": 5,
             "questionText": "La interrupción temporal de las obligaciones de trabajar y remunerar, manteniendo el vínculo jurídico, se llama:",
             "options": [
                 "Extinción del contrato.",
@@ -196,6 +212,7 @@ export const unit5Questions = [
         },
         {
             "id": 5017,
+                "unit": 5,
             "questionText": "La dimisión del trabajador es una causa de extinción del contrato que requiere, generalmente:",
             "options": [
                 "La aprobación del empresario.",
@@ -208,6 +225,7 @@ export const unit5Questions = [
         },
         {
             "id": 5018,
+                "unit": 5,
             "questionText": "El despido basado en un incumplimiento grave y culpable del trabajador se denomina:",
             "options": [
                 "Despido objetivo.",
@@ -220,6 +238,7 @@ export const unit5Questions = [
         },
         {
             "id": 5019,
+                "unit": 5,
             "questionText": "La ineptitud del trabajador conocida o sobrevenida con posterioridad es una causa de:",
             "options": [
                 "Despido disciplinario.",
@@ -232,6 +251,7 @@ export const unit5Questions = [
         },
         {
             "id": 5020,
+                "unit": 5,
             "questionText": "Si un despido es declarado IMPROCEDENTE por un juez, el empresario debe optar entre la readmisión del trabajador o:",
             "options": [
                 "Una sanción económica al trabajador.",
@@ -244,6 +264,7 @@ export const unit5Questions = [
         },
         {
             "id": 5021,
+                "unit": 5,
             "questionText": "El documento que liquida las cantidades adeudadas al trabajador al finalizar la relación laboral se llama:",
             "options": [
                 "Certificado de empresa.",
@@ -256,6 +277,7 @@ export const unit5Questions = [
         },
         {
             "id": 5022,
+                "unit": 5,
             "questionText": "La duración máxima del contrato para la formación en alternancia es de:",
             "options": [
                 "6 meses",
@@ -268,6 +290,7 @@ export const unit5Questions = [
         },
         {
             "id": 5023,
+                "unit": 5,
             "questionText": "El contrato fijo discontinuo debe formalizarse siempre:",
             "options": [
                 "Verbalmente, si es inferior a un mes.",
@@ -280,6 +303,7 @@ export const unit5Questions = [
         },
         {
             "id": 5024,
+                "unit": 5,
             "questionText": "Si un trabajador encadena dos o más contratos por circunstancias de la producción superando los 18 meses en un periodo de 24, ¿qué sucede?",
             "options": [
                 "Debe tomar un descanso obligatorio de 6 meses.",
@@ -292,6 +316,7 @@ export const unit5Questions = [
         },
         {
             "id": 5025,
+                "unit": 5,
             "questionText": "La suspensión del contrato por Incapacidad Temporal (IT) tiene una duración máxima inicial de:",
             "options": [
                 "3 meses, prorrogables por otros 3.",
@@ -304,6 +329,7 @@ export const unit5Questions = [
         },
         {
             "id": 5026,
+                "unit": 5,
             "questionText": "Un despido declarado NULO por un juez implica:",
             "options": [
                 "El pago de una doble indemnización.",
@@ -316,6 +342,7 @@ export const unit5Questions = [
         },
         {
             "id": 5027,
+                "unit": 5,
             "questionText": "El contrato de relevo está vinculado a la situación de un trabajador que:",
             "options": [
                 "Pide una excedencia para cuidado de hijos.",
@@ -328,6 +355,7 @@ export const unit5Questions = [
         },
         {
             "id": 5028,
+                "unit": 5,
             "questionText": "Las horas complementarias son propias del contrato:",
             "options": [
                 "Indefinido ordinario a jornada completa.",
@@ -340,6 +368,7 @@ export const unit5Questions = [
         },
         {
             "id": 5029,
+                "unit": 5,
             "questionText": "Si el empresario modifica sustancialmente las condiciones de trabajo (MSCT) y el trabajador no está de acuerdo, una de sus opciones es:",
             "options": [
                 "Solicitar una excedencia forzosa.",
@@ -352,6 +381,7 @@ export const unit5Questions = [
         },
         {
             "id": 5030,
+                "unit": 5,
             "questionText": "El plazo para que el empresario comunique a los servicios públicos de empleo la formalización de un contrato es de:",
             "options": [
                 "24 horas.",
