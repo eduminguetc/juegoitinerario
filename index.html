@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Laboral Educativa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center min-h-screen font-inter p-4">
+
+    <div id="game-container" class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-500">
+        
+        <div id="start-screen" class="text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Trivia Laboral</h1>
+            <p class="text-gray-600 mb-8 text-lg">Pon a prueba tus conocimientos sobre el mundo laboral y la seguridad social en España.</p>
+            <button id="start-game-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg text-xl shadow-md hover:shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+                Comenzar Juego
+            </button>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <div class="flex justify-between items-center mb-6">
+                <div id="question-counter" class="text-sm font-semibold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Pregunta 1 / 20</div>
+                <div id="score" class="text-sm font-semibold">
+                    <span class="text-green-500">Aciertos: <span id="correct-score">0</span></span> | 
+                    <span class="text-red-500">Fallos: <span id="incorrect-score">0</span></span>
+                </div>
+            </div>
+
+            <div id="card" class="bg-slate-50 p-6 rounded-lg shadow-lg mb-6 min-h-[150px] flex flex-col justify-center">
+                <h2 id="question-text" class="text-xl sm:text-2xl font-semibold text-gray-800 text-center"></h2>
+            </div>
+
+            <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                </div>
+            
+            <div id="feedback-container" class="min-h-[100px]">
+                 <div id="feedback-message" class="p-4 rounded-lg text-center font-medium hidden"></div>
+                 <div id="explanation-text" class="mt-2 text-sm text-gray-700 bg-sky-50 p-3 rounded hidden"></div>
+            </div>
+
+            <button id="next-question-btn" class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg text-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 hidden">
+                Siguiente Pregunta
+            </button>
+        </div>
+
+        <div id="end-screen" class="hidden text-center">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4">¡Partida Terminada!</h2>
+            <p class="text-gray-700 text-xl mb-2">Aciertos: <span id="final-correct" class="font-bold text-green-500"></span></p>
+            <p class="text-gray-700 text-xl mb-8">Fallos: <span id="final-incorrect" class="font-bold text-red-500"></span></p>
+            <button id="play-again-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg text-xl shadow-md hover:shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+                Jugar de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="index.js"></script> 
+</body>
+</html>
