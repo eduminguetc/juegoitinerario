@@ -574,7 +574,6 @@ const allQuestionsData = {
             "explanation": "El propósito principal de un PDI es proporcionar una hoja de ruta personalizada que guíe a los trabajadores en su trayectoria profesional, alineando sus aspiraciones personales con las necesidades del mercado."
         }
     ]
-};
 // Estado inicial del juego
 const gameState = {
     questions: [],
