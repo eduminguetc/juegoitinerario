@@ -4,6 +4,7 @@
 export const unit1Questions = [
         {
             "id": 1001,
+                "unit": 1,
             "questionText": "El trabajo realizado de forma voluntaria, personal y directa, bajo la organización de un tercero a cambio de un salario, se denomina:",
             "options": [
                 "Trabajo por cuenta propia",
@@ -16,6 +17,7 @@ export const unit1Questions = [
         },
         {
             "id": 1002,
+                "unit": 1,
             "questionText": "¿Qué es un Trabajador Autónomo Económicamente Dependiente (TRADE)?",
             "options": [
                 "Un autónomo que tiene muchos empleados a su cargo.",
@@ -28,6 +30,7 @@ export const unit1Questions = [
         },
         {
             "id": 1003,
+                "unit": 1,
             "questionText": "El acceso a la función pública en España debe regirse por los principios de:",
             "options": [
                 "Antigüedad y lealtad",
@@ -40,6 +43,7 @@ export const unit1Questions = [
         },
         {
             "id": 1004,
+                "unit": 1,
             "questionText": "¿Cuál de estos NO es un tipo de personal al servicio de la Administración Pública?",
             "options": [
                 "Funcionario de carrera",
@@ -52,6 +56,7 @@ export const unit1Questions = [
         },
         {
             "id": 1005,
+                "unit": 1,
             "questionText": "El portal europeo que ofrece información sobre oportunidades de estudiar, trabajar o realizar voluntariado en otros países de la UE es:",
             "options": [
                 "LinkedIn Europa",
@@ -64,6 +69,7 @@ export const unit1Questions = [
         },
         {
             "id": 1006,
+                "unit": 1,
             "questionText": "La actitud profesional que implica anticiparse a los problemas y proponer soluciones se denomina:",
             "options": [
                 "Responsabilidad",
@@ -76,6 +82,7 @@ export const unit1Questions = [
         },
         {
             "id": 1007,
+                "unit": 1,
             "questionText": "La 'Zona de Desarrollo Próximo' (ZDP) se refiere a:",
             "options": [
                 "Las competencias que ya se dominan completamente.",
@@ -88,6 +95,7 @@ export const unit1Questions = [
         },
         {
             "id": 1008,
+                "unit": 1,
             "questionText": "El conjunto de cinco documentos que permiten comunicar habilidades y titulaciones de forma estandarizada en la UE se llama:",
             "options": [
                 "Carta de Presentación Europea",
@@ -100,6 +108,7 @@ export const unit1Questions = [
         },
         {
             "id": 1009,
+                "unit": 1,
             "questionText": "El sistema selectivo de acceso al empleo público que consiste en la comprobación y clasificación de méritos (experiencia, formación) es:",
             "options": [
                 "Oposición",
@@ -112,6 +121,7 @@ export const unit1Questions = [
         },
         {
             "id": 1010,
+                "unit": 1,
             "questionText": "Un profesional autónomo que desarrolla actividades como arquitecto o abogado, ¿necesita estar siempre colegiado?",
             "options": [
                 "Sí, es obligatorio para todos los profesionales autónomos.",
@@ -124,6 +134,7 @@ export const unit1Questions = [
         },
         {
             "id": 1011,
+                "unit": 1,
             "questionText": "La Red EURES se enfoca principalmente en:",
             "options": [
                 "Financiar proyectos de investigación.",
@@ -136,6 +147,7 @@ export const unit1Questions = [
         },
         {
             "id": 1012,
+                "unit": 1,
             "questionText": "La capacidad innata o adquirida para realizar ciertas tareas de forma idónea se conoce como:",
             "options": [
                 "Actitud",
@@ -148,6 +160,7 @@ export const unit1Questions = [
         },
         {
             "id": 1013,
+                "unit": 1,
             "questionText": "El grupo de clasificación para el acceso al empleo público que exige el Título de Técnico Superior (CFGS) es el Grupo:",
             "options": [
                 "A1",
@@ -160,6 +173,7 @@ export const unit1Questions = [
         },
         {
             "id": 1014,
+                "unit": 1,
             "questionText": "El __________ es un tipo de relación laboral que se da cuando el trabajo se hace de forma voluntaria, personal y directa, pero organizado por una tercera persona, a cambio de un salario.",
             "options": [
                 "autoempleo",
@@ -172,6 +186,7 @@ export const unit1Questions = [
         },
         {
             "id": 1015,
+                "unit": 1,
             "questionText": "¿Cuál de estas NO es una actitud relevante para la actividad profesional mencionada en la unidad?",
             "options": [
                 "Proactividad",
@@ -184,6 +199,7 @@ export const unit1Questions = [
         },
         {
             "id": 1016,
+                "unit": 1,
             "questionText": "El primer paso para determinar la Zona de Desarrollo Próximo (ZDP) es:",
             "options": [
                 "Buscar recursos y apoyo.",
@@ -196,6 +212,7 @@ export const unit1Questions = [
         },
         {
             "id": 1017,
+                "unit": 1,
             "questionText": "Las ofertas de empleo público se publican generalmente en:",
             "options": [
                 "Redes sociales profesionales",
@@ -208,6 +225,7 @@ export const unit1Questions = [
         },
         {
             "id": 1018,
+                "unit": 1,
             "questionText": "El programa Erasmus+ incluye acciones clave para la movilidad educativa de los ciudadanos europeos, identificada como:",
             "options": [
                 "KA1",
@@ -220,6 +238,7 @@ export const unit1Questions = [
         },
         {
             "id": 1019,
+                "unit": 1,
             "questionText": "La capacidad de entender y valorar los sentimientos y perspectivas de los demás, mejorando la interacción laboral, es la:",
             "options": [
                 "Gestión del tiempo",
@@ -232,6 +251,7 @@ export const unit1Questions = [
         },
         {
             "id": 1020,
+                "unit": 1,
             "questionText": "Un autónomo societario es aquel que:",
             "options": [
                 "Colabora con un familiar autónomo.",
@@ -244,6 +264,7 @@ export const unit1Questions = [
         },
         {
             "id": 1021,
+                "unit": 1,
             "questionText": "El mercado laboral se compone de oferta, demanda y:",
             "options": [
                 "Competidores",
@@ -256,6 +277,7 @@ export const unit1Questions = [
         },
         {
             "id": 1022,
+                "unit": 1,
             "questionText": "Para acceder a un puesto de funcionario de carrera, ¿es siempre necesario superar una oposición?",
             "options": [
                 "Sí, siempre es mediante oposición.",
@@ -268,6 +290,7 @@ export const unit1Questions = [
         },
         {
             "id": 1023,
+                "unit": 1,
             "questionText": "El CV Europass forma parte de un conjunto de documentos diseñados para facilitar la movilidad en Europa. ¿Cuántos documentos componen Europass en total?",
             "options": [
                 "Dos",
@@ -280,6 +303,7 @@ export const unit1Questions = [
         },
         {
             "id": 1024,
+                "unit": 1,
             "questionText": "La disposición mental y emocional de una persona hacia una situación, influenciada por experiencias y creencias, es su:",
             "options": [
                 "Aptitud",
@@ -292,6 +316,7 @@ export const unit1Questions = [
         },
         {
             "id": 1025,
+                "unit": 1,
             "questionText": "El dominio de herramientas, técnicas y procedimientos propios de un campo profesional específico es un ejemplo de:",
             "options": [
                 "Conocimientos técnicos (aptitud)",
@@ -304,6 +329,7 @@ export const unit1Questions = [
         },
         {
             "id": 1026,
+                "unit": 1,
             "questionText": "El Real Decreto Legislativo 5/2015, de 30 de octubre, aprueba el texto refundido de la Ley del:",
             "options": [
                 "Estatuto de los Trabajadores",
@@ -316,6 +342,7 @@ export const unit1Questions = [
         },
         {
             "id": 1027,
+                "unit": 1,
             "questionText": "Las Empresas de Trabajo Temporal (ETT) actúan en el mercado laboral como:",
             "options": [
                 "Empleadores públicos",
@@ -328,6 +355,7 @@ export const unit1Questions = [
         },
         {
             "id": 1028,
+                "unit": 1,
             "questionText": "La capacidad de guiar e inspirar a equipos de trabajo, estableciendo una meta compartida, se conoce como:",
             "options": [
                 "Empatía",
@@ -340,6 +368,7 @@ export const unit1Questions = [
         },
         {
             "id": 1029,
+                "unit": 1,
             "questionText": "Si un titulado de Ciclo Formativo de Grado Medio desea acceder a un Ciclo Formativo de Grado Superior, ¿qué opción NO es válida directamente?",
             "options": [
                 "Tener el título de Técnico (CFGM).",
@@ -352,6 +381,7 @@ export const unit1Questions = [
         },
         {
             "id": 1030,
+                "unit": 1,
             "questionText": "El último paso para determinar la Zona de Desarrollo Próximo (ZDP) es:",
             "options": [
                 "Evaluar competencias actuales.",
