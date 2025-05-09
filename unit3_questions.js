@@ -1,6 +1,6 @@
 // questions/unit3_questions.js
 
-// Array de preguntas para la Unidad 7
+// Array de preguntas para la Unidad 3
 export const unit3Questions = [
         {
             "id": 3001,
