@@ -362,4 +362,4 @@ export const unit4Questions = [
             "correctAnswerIndex": 1,
             "explanation": "El crédito de horas es un número de horas de trabajo retribuidas al mes de las que disponen los representantes de los trabajadores para realizar sus funciones de representación."
         }
-    ]
+    ];
