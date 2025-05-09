@@ -4,6 +4,7 @@
 export const unit6Questions = [
         {
             "id": 6001,
+                "unit": 6,
             "questionText": "La duración máxima de la jornada laboral ordinaria en España, en cómputo anual, es de:",
             "options": [
                 "35 horas semanales",
@@ -16,6 +17,7 @@ export const unit6Questions = [
         },
         {
             "id": 6002,
+                "unit": 6,
             "questionText": "El tiempo de trabajo que se realiza entre las 22:00 y las 6:00 horas se considera:",
             "options": [
                 "Trabajo a turnos",
@@ -28,6 +30,7 @@ export const unit6Questions = [
         },
         {
             "id": 6003,
+                "unit": 6,
             "questionText": "El periodo mínimo de vacaciones anuales retribuidas que garantiza el Estatuto de los Trabajadores es de:",
             "options": [
                 "20 días naturales",
@@ -40,6 +43,7 @@ export const unit6Questions = [
         },
         {
             "id": 6004,
+                "unit": 6,
             "questionText": "¿Cuál es la duración máxima del periodo de prueba para un técnico titulado según el Estatuto de los Trabajadores, si el convenio no dice nada?",
             "options": [
                 "1 mes",
@@ -52,6 +56,7 @@ export const unit6Questions = [
         },
         {
             "id": 6005,
+                "unit": 6,
             "questionText": "La capacidad de una persona para ajustarse y responder eficazmente a cambios, desafíos y nuevas circunstancias en el entorno laboral se denomina:",
             "options": [
                 "Productividad",
@@ -64,6 +69,7 @@ export const unit6Questions = [
         },
         {
             "id": 6006,
+                "unit": 6,
             "questionText": "Las horas de trabajo que se completan fuera de la jornada ordinaria establecida se denominan:",
             "options": [
                 "Horas complementarias",
@@ -76,6 +82,7 @@ export const unit6Questions = [
         },
         {
             "id": 6007,
+                "unit": 6,
             "questionText": "El descanso mínimo entre el final de una jornada y el comienzo de la siguiente debe ser de:",
             "options": [
                 "8 horas",
@@ -88,6 +95,7 @@ export const unit6Questions = [
         },
         {
             "id": 6008,
+                "unit": 6,
             "questionText": "Si una jornada diaria continuada excede de seis horas, el trabajador tiene derecho a un descanso durante la misma de, al menos:",
             "options": [
                 "10 minutos",
@@ -100,6 +108,7 @@ export const unit6Questions = [
         },
         {
             "id": 6009,
+                "unit": 6,
             "questionText": "¿Cuántas fiestas laborales, como máximo, puede haber al año, incluyendo nacionales, autonómicas y locales?",
             "options": [
                 "10",
@@ -112,6 +121,7 @@ export const unit6Questions = [
         },
         {
             "id": 6010,
+                "unit": 6,
             "questionText": "Un trabajador puede ausentarse del trabajo con derecho a remuneración por motivo de matrimonio durante:",
             "options": [
                 "5 días naturales",
@@ -124,6 +134,7 @@ export const unit6Questions = [
         },
         {
             "id": 6011,
+                "unit": 6,
             "questionText": "El periodo de prueba en un contrato de trabajo:",
             "options": [
                 "Es obligatorio en todos los contratos.",
@@ -136,6 +147,7 @@ export const unit6Questions = [
         },
         {
             "id": 6012,
+                "unit": 6,
             "questionText": "La transformación digital, la flexibilidad laboral y el auge del teletrabajo son características del:",
             "options": [
                 "Entorno laboral del siglo XX",
@@ -148,6 +160,7 @@ export const unit6Questions = [
         },
         {
             "id": 6013,
+                "unit": 6,
             "questionText": "El derecho del trabajador a no estar disponible las 24 horas del día, marcando límites entre el espacio laboral y personal, se relaciona con:",
             "options": [
                 "El derecho a la promoción profesional.",
@@ -160,6 +173,7 @@ export const unit6Questions = [
         },
         {
             "id": 6014,
+                "unit": 6,
             "questionText": "La capacidad de asumir con flexibilidad situaciones límite y sobreponerse a ellas, aprendiendo de los fracasos, se denomina:",
             "options": [
                 "Optimismo",
@@ -172,6 +186,7 @@ export const unit6Questions = [
         },
         {
             "id": 6015,
+                "unit": 6,
             "questionText": "Antes de acudir a la vía judicial por un conflicto laboral individual, generalmente es obligatorio intentar una:",
             "options": [
                 "Huelga",
@@ -184,6 +199,7 @@ export const unit6Questions = [
         },
         {
             "id": 6016,
+                "unit": 6,
             "questionText": "El máximo de horas extraordinarias que se pueden realizar al año, sin contar las compensadas con descanso o las de fuerza mayor, es de:",
             "options": [
                 "40 horas",
@@ -196,6 +212,7 @@ export const unit6Questions = [
         },
         {
             "id": 6017,
+                "unit": 6,
             "questionText": "Un trabajador nocturno es aquel que realiza en horario nocturno (22:00-6:00) al menos:",
             "options": [
                 "1 hora de su jornada diaria.",
@@ -208,6 +225,7 @@ export const unit6Questions = [
         },
         {
             "id": 6018,
+                "unit": 6,
             "questionText": "El descanso semanal mínimo para los trabajadores menores de 18 años es de:",
             "options": [
                 "Un día y medio ininterrumpido.",
@@ -220,6 +238,7 @@ export const unit6Questions = [
         },
         {
             "id": 6019,
+                "unit": 6,
             "questionText": "¿Pueden las vacaciones anuales ser sustituidas por una compensación económica si el trabajador así lo prefiere?",
             "options": [
                 "Sí, siempre que haya acuerdo con la empresa.",
@@ -232,6 +251,7 @@ export const unit6Questions = [
         },
         {
             "id": 6020,
+                "unit": 6,
             "questionText": "El permiso retribuido por traslado del domicilio habitual es de:",
             "options": [
                 "Medio día.",
@@ -244,6 +264,7 @@ export const unit6Questions = [
         },
         {
             "id": 6021,
+                "unit": 6,
             "questionText": "La reducción de jornada por guarda legal de un menor de 12 años implica una disminución proporcional del:",
             "options": [
                 "Número de días de vacaciones.",
@@ -256,6 +277,7 @@ export const unit6Questions = [
         },
         {
             "id": 6022,
+                "unit": 6,
             "questionText": "El periodo de prueba se considera nulo si:",
             "options": [
                 "El trabajador tiene más de 5 años de experiencia.",
@@ -268,6 +290,7 @@ export const unit6Questions = [
         },
         {
             "id": 6023,
+                "unit": 6,
             "questionText": "La 'economía gig' o 'freelance' se refiere a un modelo laboral basado en:",
             "options": [
                 "Contratos indefinidos a tiempo completo.",
@@ -280,6 +303,7 @@ export const unit6Questions = [
         },
         {
             "id": 6024,
+                "unit": 6,
             "questionText": "El documento que elabora la empresa anualmente con la distribución de días laborables, festivos y descansos se llama:",
             "options": [
                 "Plan de prevención",
@@ -292,6 +316,7 @@ export const unit6Questions = [
         },
         {
             "id": 6025,
+                "unit": 6,
             "questionText": "El permiso por lactancia de un hijo menor de 9 meses permite una ausencia del trabajo de:",
             "options": [
                 "Media hora al día.",
@@ -304,6 +329,7 @@ export const unit6Questions = [
         },
         {
             "id": 6026,
+                "unit": 6,
             "questionText": "La obligación de las empresas de llevar un registro diario e individual de la jornada de los trabajadores se aplica a:",
             "options": [
                 "Solo a los trabajadores a tiempo parcial.",
@@ -316,6 +342,7 @@ export const unit6Questions = [
         },
         {
             "id": 6027,
+                "unit": 6,
             "questionText": "En un trabajo a turnos, ¿cuántas semanas consecutivas como máximo puede estar un trabajador en el turno de noche, salvo adscripción voluntaria?",
             "options": [
                 "Una semana.",
@@ -328,6 +355,7 @@ export const unit6Questions = [
         },
         {
             "id": 6028,
+                "unit": 6,
             "questionText": "Si un trabajador se casa, ¿cuántos días naturales de permiso retribuido le corresponden?",
             "options": [
                 "5 días",
@@ -340,6 +368,7 @@ export const unit6Questions = [
         },
         {
             "id": 6029,
+                "unit": 6,
             "questionText": "La duración máxima del periodo de prueba para trabajadores que NO sean técnicos titulados en empresas de menos de 25 empleados es de:",
             "options": [
                 "1 mes",
@@ -352,6 +381,7 @@ export const unit6Questions = [
         },
         {
             "id": 6030,
+                "unit": 6,
             "questionText": "El Servicio de Mediación, Arbitraje y Conciliación (SMAC) interviene en los conflictos laborales:",
             "options": [
                 "Únicamente para imponer sanciones a las empresas.",
