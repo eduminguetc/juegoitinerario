@@ -1,15 +1,15 @@
     // index.js
 
     // Importar las preguntas de cada unidad
-    import { unit1Questions } from './questions/unit1_questions.js';
-    import { unit2Questions } from './questions/unit2_questions.js';
-    import { unit3Questions } from './questions/unit3_questions.js';
-    import { unit4Questions } from './questions/unit4_questions.js';
-    import { unit5Questions } from './questions/unit5_questions.js';
-    import { unit6Questions } from './questions/unit6_questions.js';
-    import { unit7Questions } from './questions/unit7_questions.js';
-    import { unit8Questions } from './questions/unit8_questions.js';
-    import { unit9Questions } from './questions/unit9_questions.js';
+    import { unit1Questions } from './unit1_questions.js';
+    import { unit2Questions } from './unit2_questions.js';
+    import { unit3Questions } from './unit3_questions.js';
+    import { unit4Questions } from './unit4_questions.js';
+    import { unit5Questions } from './unit5_questions.js';
+    import { unit6Questions } from './unit6_questions.js';
+    import { unit7Questions } from './unit7_questions.js';
+    import { unit8Questions } from './unit8_questions.js';
+    import { unit9Questions } from './unit9_questions.js';
 
     // Constante para el número total de preguntas por partida
     const TOTAL_QUESTIONS_PER_GAME = 20;
