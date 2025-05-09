@@ -422,4 +422,3 @@ export const unit7Questions = [
         "explanation": "El compromiso de actividad implica acreditar la búsqueda activa de empleo, aceptar una colocación adecuada y participar en acciones de formación, reconversión o inserción profesional."
     }
 ]
-}
