@@ -4,7 +4,6 @@
 const TOTAL_QUESTIONS_PER_GAME = 20;
 
 // BASE DE PREGUNTAS INTEGRADA
-// Anteriormente esto estaba en metadata.json
 const allQuestionsData = {
     "questions": [
          {
@@ -576,24 +575,20 @@ const allQuestionsData = {
         }
     ]
 };
-    ]
-};
-
-
 // Estado inicial del juego
 const gameState = {
-    questions: [], // Almacenará todas las preguntas cargadas
-    currentQuestionIndex: 0, // Índice de la pregunta actual
-    scoreCorrect: 0, // Puntuación de respuestas correctas
-    scoreIncorrect: 0, // Puntuación de respuestas incorrectas
-    currentQuestionSet: [], // Subconjunto de preguntas para la partida actual
-    lastGameQuestionIds: [], // IDs de las preguntas usadas en la última partida para evitar repetición inmediata
-    gamePhase: 'start', // Fase actual del juego: 'start', 'playing', 'feedback', 'end'
-    selectedAnswerIndex: null, // Índice de la respuesta seleccionada por el usuario
-    timerId: null, // ID del temporizador para auto-avanzar en respuestas correctas
+    questions: [],
+    currentQuestionIndex: 0,
+    scoreCorrect: 0,
+    scoreIncorrect: 0,
+    currentQuestionSet: [],
+    lastGameQuestionIds: [],
+    gamePhase: 'start',
+    selectedAnswerIndex: null,
+    timerId: null,
 };
 
-// Obtención de elementos del DOM para interactuar con ellos
+// Obtención de elementos del DOM
 const gameContainer = document.getElementById('game-container');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
@@ -614,79 +609,64 @@ const finalIncorrectEl = document.getElementById('final-incorrect');
 
 /**
  * Carga las preguntas directamente desde la constante allQuestionsData.
- * Actualiza el estado del juego con las preguntas cargadas.
  */
 function loadQuestions() {
-    // Simula una carga asíncrona aunque los datos ya están disponibles
     return new Promise((resolve, reject) => {
         if (allQuestionsData && allQuestionsData.questions && Array.isArray(allQuestionsData.questions)) {
             gameState.questions = allQuestionsData.questions;
+            console.log("Preguntas cargadas:", gameState.questions.length); // Log para depuración
             resolve();
         } else {
-            console.error("No se pudieron cargar las preguntas desde la constante interna o el formato es incorrecto.");
-            // Intentar mostrar error en la UI si es posible
-            if (startScreen && !gameScreen.classList.contains('hidden')) { // Solo si la pantalla de inicio está activa
+            console.error("Error: allQuestionsData.questions no es un array o no está definido.");
+            if (startScreen && !gameScreen.classList.contains('hidden')) {
                  startScreen.innerHTML = `
                     <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error de Carga</h1>
-                    <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas del juego. Problema con los datos internos.</p>
+                    <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas. Problema con los datos internos.</p>
                 `;
             }
-            reject(new Error("Datos de preguntas no encontrados o en formato incorrecto en la constante interna."));
+            reject(new Error("Datos de preguntas no encontrados o en formato incorrecto."));
         }
     });
 }
 
-
 /**
- * Selecciona un nuevo conjunto de preguntas para una partida,
- * evitando repetir las de la partida inmediatamente anterior.
- * @returns {Array<Object>} Un array de objetos de pregunta.
+ * Selecciona un nuevo conjunto de preguntas.
  */
 function selectNewQuestions() {
-    // Filtra las preguntas que ya se usaron en la última partida
     let availableQuestions = gameState.questions.filter(
         q => !gameState.lastGameQuestionIds.includes(q.id)
     );
 
-    // Si no hay suficientes preguntas únicas disponibles que no se hayan usado en la última partida
     if (availableQuestions.length < TOTAL_QUESTIONS_PER_GAME) {
-        // Si el problema es que se filtraron demasiadas, y el banco total SÍ tiene suficientes,
-        // entonces permitimos repetir preguntas de partidas anteriores reseteando el filtro.
         if (gameState.questions.length >= TOTAL_QUESTIONS_PER_GAME) {
-            console.warn("No hay suficientes preguntas únicas no vistas recientemente. Permitiendo repetición de preguntas de partidas anteriores.");
-            availableQuestions = gameState.questions; // Usar todo el banco de preguntas
-            // No reseteamos lastGameQuestionIds aquí, se hará en startGame si es necesario
-            // para la lógica de "no repetir inmediatamente".
+            console.warn("No hay suficientes preguntas únicas no vistas recientemente. Permitiendo repetición.");
+            availableQuestions = gameState.questions;
+            // Considera resetear lastGameQuestionIds si quieres que un "jugar de nuevo" inmediato
+            // pueda repetir preguntas de la partida que acaba de terminar si no hay más.
+            // gameState.lastGameQuestionIds = []; // Descomentar si se desea este comportamiento.
         } else {
-            // Si el banco total de preguntas es menor que las necesarias para una partida.
             console.error("El banco total de preguntas es menor que TOTAL_QUESTIONS_PER_GAME.");
-            return []; // Devolver array vacío para que startGame lo maneje
+            return [];
         }
     }
 
-    // Mezcla las preguntas disponibles de forma aleatoria
     const shuffled = [...availableQuestions].sort(() => 0.5 - Math.random());
-    // Selecciona el número de preguntas necesarias para la partida
-    const selected = shuffled.slice(0, TOTAL_QUESTIONS_PER_GAME);
-    
-    // Devolvemos las seleccionadas. La actualización de lastGameQuestionIds se hará en startGame.
-    return selected;
+    return shuffled.slice(0, TOTAL_QUESTIONS_PER_GAME);
 }
+
 /**
- * Inicia una nueva partida del juego.
- * Reinicia el estado del juego y muestra la primera pregunta.
+ * Inicia una nueva partida.
  */
 function startGame() {
+    console.log("Intentando iniciar juego..."); // Log para depuración
     gameState.currentQuestionIndex = 0;
     gameState.scoreCorrect = 0;
     gameState.scoreIncorrect = 0;
     
     const selectedQuestions = selectNewQuestions();
 
-    // Verificar si se pudieron seleccionar suficientes preguntas
     if (!selectedQuestions || selectedQuestions.length < TOTAL_QUESTIONS_PER_GAME) {
-        console.error("No hay suficientes preguntas para iniciar una nueva partida.");
-        // Asegurarse de que la pantalla de inicio sea visible para mostrar el error
+        console.error("No se pudieron seleccionar suficientes preguntas para la partida.");
         startScreen.classList.remove('hidden');
         gameScreen.classList.add('hidden');
         endScreen.classList.add('hidden');
@@ -695,7 +675,6 @@ function startGame() {
             <p class="text-gray-600 mb-8 text-lg">No hay suficientes preguntas en el banco para iniciar una partida de ${TOTAL_QUESTIONS_PER_GAME}. Por favor, añade más preguntas.</p>
             <button id="reload-page-btn" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">Recargar</button>
         `;
-        // Añadir event listener para un posible botón de recarga
         const reloadBtn = document.getElementById('reload-page-btn');
         if (reloadBtn) {
             reloadBtn.addEventListener('click', () => window.location.reload());
@@ -704,14 +683,9 @@ function startGame() {
     }
     
     gameState.currentQuestionSet = selectedQuestions;
-    // Actualizar las IDs de las preguntas usadas para ESTA partida.
-    // Si se jugó antes y se tuvieron que repetir todas, lastGameQuestionIds se vaciará aquí.
-    // Si se pudo seleccionar sin repetir de la última, se actualiza con las nuevas.
     gameState.lastGameQuestionIds = gameState.currentQuestionSet.map(q => q.id); 
-
     gameState.gamePhase = 'playing';
     
-    // Oculta la pantalla de inicio y final, muestra la pantalla de juego
     startScreen.classList.add('hidden');
     endScreen.classList.add('hidden');
     gameScreen.classList.remove('hidden');
@@ -723,24 +697,21 @@ function startGame() {
 }
 
 /**
- * Muestra la pregunta actual y sus opciones de respuesta.
- * Si no hay más preguntas, finaliza el juego.
+ * Muestra la pregunta actual.
  */
 function displayQuestion() {
-    // Si se han mostrado todas las preguntas, termina el juego
     if (gameState.currentQuestionIndex >= gameState.currentQuestionSet.length) {
         endGame();
         return;
     }
 
-    clearTimeout(gameState.timerId); // Limpia cualquier temporizador de auto-avance
+    clearTimeout(gameState.timerId); 
 
     const question = gameState.currentQuestionSet[gameState.currentQuestionIndex];
     questionTextEl.textContent = question.questionText;
     questionCounterEl.textContent = `Pregunta ${gameState.currentQuestionIndex + 1} / ${TOTAL_QUESTIONS_PER_GAME}`;
     
-    optionsContainerEl.innerHTML = ''; // Limpia opciones de la pregunta anterior
-    // Crea y añade los botones de opción para la pregunta actual
+    optionsContainerEl.innerHTML = ''; 
     question.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.textContent = option;
@@ -749,20 +720,18 @@ function displayQuestion() {
             'text-gray-700', 'hover:bg-indigo-100', 'hover:border-indigo-500', 'transition-colors', 'duration-200',
             'focus:outline-none', 'focus:ring-2', 'focus:ring-indigo-400', 'focus:ring-opacity-75'
         );
-        button.dataset.index = index.toString(); // Almacena el índice de la opción en el botón
+        button.dataset.index = index.toString(); 
         button.addEventListener('click', () => handleAnswer(index));
         optionsContainerEl.appendChild(button);
     });
 
-    // Oculta mensajes de feedback y el botón de siguiente pregunta
     feedbackMessageEl.classList.add('hidden');
     explanationTextEl.classList.add('hidden');
     explanationTextEl.textContent = '';
     nextQuestionBtn.classList.add('hidden');
-    gameState.gamePhase = 'playing'; // Establece la fase a 'jugando'
-    gameState.selectedAnswerIndex = null; // Resetea la respuesta seleccionada
+    gameState.gamePhase = 'playing'; 
+    gameState.selectedAnswerIndex = null; 
 
-    // Rehabilita los botones de opción para la nueva pregunta
     optionsContainerEl.querySelectorAll('button').forEach(btn => {
         btn.disabled = false;
         btn.classList.remove('correct-answer-highlight', 'selected-incorrect-answer', 'opacity-50', 'cursor-not-allowed');
@@ -770,20 +739,17 @@ function displayQuestion() {
 }
 
 /**
- * Maneja la selección de una respuesta por parte del usuario.
- * Evalúa si la respuesta es correcta, actualiza la puntuación y muestra feedback.
- * @param {number} selectedIndex - El índice de la opción seleccionada.
+ * Maneja la respuesta del usuario.
  */
 function handleAnswer(selectedIndex) {
-    if (gameState.gamePhase !== 'playing') return; // Solo procesa si se está jugando
+    if (gameState.gamePhase !== 'playing') return; 
 
     gameState.selectedAnswerIndex = selectedIndex;
-    gameState.gamePhase = 'feedback'; // Cambia la fase a 'feedback'
+    gameState.gamePhase = 'feedback'; 
 
     const question = gameState.currentQuestionSet[gameState.currentQuestionIndex];
     const correct = selectedIndex === question.correctAnswerIndex;
 
-    // Deshabilita todos los botones de opción tras una selección
     const optionButtons = optionsContainerEl.querySelectorAll('button');
     optionButtons.forEach(btn => {
         btn.disabled = true;
@@ -792,7 +758,6 @@ function handleAnswer(selectedIndex) {
     
     const selectedButton = optionsContainerEl.querySelector(`button[data-index="${selectedIndex}"]`);
 
-    // Muestra el mensaje de feedback
     feedbackMessageEl.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
 
     if (correct) {
@@ -800,34 +765,31 @@ function handleAnswer(selectedIndex) {
         feedbackMessageEl.textContent = "¡Respuesta Correcta!";
         feedbackMessageEl.classList.add('bg-green-100', 'text-green-700');
         selectedButton?.classList.add('correct-answer-highlight');
-        // Auto-avanza a la siguiente pregunta tras un breve retardo
         gameState.timerId = setTimeout(() => {
             nextQuestion();
-        }, 1500); // 1.5 segundos
+        }, 1500); 
     } else {
         gameState.scoreIncorrect++;
         feedbackMessageEl.textContent = "Respuesta Incorrecta.";
         feedbackMessageEl.classList.add('bg-red-100', 'text-red-700');
         
-        // Muestra la explicación
         explanationTextEl.textContent = `Explicación: ${question.explanation}`;
         explanationTextEl.classList.remove('hidden');
 
-        // Resalta la respuesta incorrecta seleccionada y la respuesta correcta
         selectedButton?.classList.add('selected-incorrect-answer');
         const correctButton = optionsContainerEl.querySelector(`button[data-index="${question.correctAnswerIndex}"]`);
         correctButton?.classList.add('correct-answer-highlight');
         
-        nextQuestionBtn.classList.remove('hidden'); // Muestra el botón para avanzar manualmente
+        nextQuestionBtn.classList.remove('hidden'); 
     }
-    updateScoreDisplay(); // Actualiza la visualización de la puntuación
+    updateScoreDisplay(); 
 }
 
 /**
- * Avanza a la siguiente pregunta o finaliza el juego si no hay más.
+ * Avanza a la siguiente pregunta.
  */
 function nextQuestion() {
-    clearTimeout(gameState.timerId); // Limpia el temporizador si se avanza manualmente
+    clearTimeout(gameState.timerId); 
     gameState.currentQuestionIndex++;
     if (gameState.currentQuestionIndex < TOTAL_QUESTIONS_PER_GAME) {
         displayQuestion();
@@ -837,7 +799,7 @@ function nextQuestion() {
 }
 
 /**
- * Actualiza la visualización de la puntuación en la pantalla.
+ * Actualiza la visualización de la puntuación.
  */
 function updateScoreDisplay() {
     correctScoreEl.textContent = gameState.scoreCorrect.toString();
@@ -845,56 +807,53 @@ function updateScoreDisplay() {
 }
 
 /**
- * Finaliza la partida actual y muestra la pantalla de resultados.
+ * Finaliza la partida.
  */
 function endGame() {
     gameState.gamePhase = 'end';
-    gameScreen.classList.add('hidden'); // Oculta pantalla de juego
-    endScreen.classList.remove('hidden'); // Muestra pantalla final
-    gameContainer.classList.remove('max-w-2xl'); // Ajusta tamaño del contenedor
+    gameScreen.classList.add('hidden'); 
+    endScreen.classList.remove('hidden'); 
+    gameContainer.classList.remove('max-w-2xl'); 
     gameContainer.classList.add('max-w-md');
 
-
-    // Muestra la puntuación final
     finalCorrectEl.textContent = gameState.scoreCorrect.toString();
     finalIncorrectEl.textContent = gameState.scoreIncorrect.toString();
 }
 
-// Asignación de manejadores de eventos a los botones
-startGameBtn.addEventListener('click', startGame);
+// Event Listeners
+// El listener para startGameBtn se añade en DOMContentLoaded
 nextQuestionBtn.addEventListener('click', nextQuestion);
 playAgainBtn.addEventListener('click', () => {
-    // Al jugar de nuevo, se mantienen las `lastGameQuestionIds` para
-    // intentar no repetir preguntas de la partida inmediatamente anterior.
     startGame();
 });
 
-// Carga las preguntas cuando el contenido del DOM esté completamente cargado
+// Carga inicial y configuración
 document.addEventListener('DOMContentLoaded', async () => {
+    console.log("DOM completamente cargado y procesado."); // Log para depuración
     try {
-        await loadQuestions(); // Asegura que gameState.questions esté poblado
+        await loadQuestions(); 
         
-        // Verificar si hay preguntas en total y si startGameBtn existe
         if (gameState.questions.length === 0) {
-            if (startScreen && !gameScreen.classList.contains('hidden')) { // Solo si la pantalla de inicio está activa
+            console.error("No se cargaron preguntas, el botón de inicio no se activará.");
+            if (startScreen && !gameScreen.classList.contains('hidden')) {
                  startScreen.innerHTML = `
                     <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error de Carga Inicial</h1>
-                    <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas del juego. La base de datos interna parece estar vacía o con errores.</p>
+                    <p class="text-gray-600 mb-8 text-lg">No se pudieron cargar las preguntas. La base de datos interna parece estar vacía o con errores.</p>
                 `;
             }
-            return; // No añadir event listener si no hay preguntas
+            return; 
         }
         
-        // Si hay preguntas y el botón existe, se añade el event listener
         if (startGameBtn) {
+            console.log("Añadiendo event listener al botón de inicio."); // Log para depuración
             startGameBtn.addEventListener('click', startGame);
         } else {
             console.error("El botón de inicio (startGameBtn) no se encontró en el DOM.");
         }
 
     } catch (error) {
-        console.error("Error inicial al cargar preguntas:", error);
-        if (startScreen && !gameScreen.classList.contains('hidden')) { // Solo si la pantalla de inicio está activa
+        console.error("Error crítico durante la carga inicial:", error);
+        if (startScreen && !gameScreen.classList.contains('hidden')) {
              startScreen.innerHTML = `
                 <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4">Error Crítico</h1>
                 <p class="text-gray-600 mb-8 text-lg">Ocurrió un error al cargar los datos necesarios para el juego.</p>
