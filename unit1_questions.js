@@ -362,4 +362,4 @@ export const unit1Questions = [
             "correctAnswerIndex": 3,
             "explanation": "El último paso para determinar la ZDP es implementar los conocimientos y habilidades adquiridos en situaciones reales de trabajo, obteniendo un aprendizaje práctico y efectivo."
         }
-    ]
+]
