@@ -1,4 +1,7 @@
-[
+// questions/unit1_questions.js
+
+// Array de preguntas para la Unidad 1
+export const unit1Questions = [
         {
             "id": 1001,
             "questionText": "El trabajo realizado de forma voluntaria, personal y directa, bajo la organización de un tercero a cambio de un salario, se denomina:",
