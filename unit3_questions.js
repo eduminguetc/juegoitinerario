@@ -363,4 +363,3 @@ export const unit3Questions = [
             "explanation": "El objetivo de inmovilizar una fractura es evitar el movimiento de los fragmentos óseos, lo que previene el dolor, el shock y que la lesión se agrave o se dañen partes blandas cercanas."
         }
     ]
-}
