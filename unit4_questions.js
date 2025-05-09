@@ -1,6 +1,7 @@
-{
-    "unit": 4,
-    "questions": [
+// questions/unit4_questions.js
+
+// Array de preguntas para la Unidad 4
+export const unit4Questions = [
         {
             "id": 4001,
             "questionText": "El principio del Derecho Laboral que establece que, en caso de duda en la interpretación de una norma, se aplicará la más favorable al trabajador se llama:",
