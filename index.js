@@ -7,7 +7,7 @@ const TOTAL_QUESTIONS_PER_GAME = 20;
 // Anteriormente esto estaba en metadata.json
 const allQuestionsData = {
     "questions": [
-        {
+         {
             "id": 1001,
             "unit": 1,
             "questionText": "¿Cuál es la vía principal de incorporación al mercado laboral que implica trabajar para un tercero a cambio de un salario, de forma voluntaria, personal y directa?",
@@ -574,6 +574,8 @@ const allQuestionsData = {
             "correctAnswerIndex": 2,
             "explanation": "El propósito principal de un PDI es proporcionar una hoja de ruta personalizada que guíe a los trabajadores en su trayectoria profesional, alineando sus aspiraciones personales con las necesidades del mercado."
         }
+    ]
+};
     ]
 };
 
