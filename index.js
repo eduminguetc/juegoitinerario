@@ -1,14 +1,28 @@
 // index.js
 
-// ... (Todas tus importaciones y constantes iniciales como estaban)
-// import { unit1Questions } from './unit1_questions.js';
-// ... etc.
+// Importar las preguntas de cada unidad (asumiendo que están en la raíz junto a index.js)
+import { unit1Questions } from './unit1_questions.js';
+import { unit2Questions } from './unit2_questions.js';
+import { unit3Questions } from './unit3_questions.js';
+import { unit4Questions } from './unit4_questions.js';
+import { unit5Questions } from './unit5_questions.js';
+import { unit6Questions } from './unit6_questions.js';
+import { unit7Questions } from './unit7_questions.js';
+import { unit8Questions } from './unit8_questions.js';
+import { unit9Questions } from './unit9_questions.js';
 
-// const TOTAL_QUESTIONS_PER_GAME = 20;
-// const NUM_UNITS = 9;
-// ... etc.
+// Constantes del juego
+const TOTAL_QUESTIONS_PER_GAME = 20;
+const NUM_UNITS = 9;
+const QUESTIONS_PER_UNIT_GUARANTEED = 1;
+const NUM_GUARANTEED_QUESTIONS = NUM_UNITS * QUESTIONS_PER_UNIT_GUARANTEED;
+const NUM_RANDOM_FILL_QUESTIONS = TOTAL_QUESTIONS_PER_GAME - NUM_GUARANTEED_QUESTIONS;
 
-// const allQuestions = [ ... ]; // Tu banco de preguntas combinado
+// Combinar todas las preguntas
+const allQuestions = [
+    ...unit1Questions, ...unit2Questions, ...unit3Questions, ...unit4Questions, ...unit5Questions,
+    ...unit6Questions, ...unit7Questions, ...unit8Questions, ...unit9Questions
+];
 
 // Estado inicial del juego
 const gameState = {
@@ -23,28 +37,40 @@ const gameState = {
     timerId: null,
 };
 
-// Obtención de elementos del DOM (estas declaraciones deben estar aquí, al principio)
+// Obtención de elementos del DOM (declarados globalmente)
 const gameContainer = document.getElementById('game-container');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
 const endScreen = document.getElementById('end-screen');
 
-const startGameBtn = document.getElementById('start-game-btn'); // Se usará en DOMContentLoaded
-const questionCounterEl = document.getElementById('question-counter');
-const correctScoreEl = document.getElementById('correct-score');
-const incorrectScoreEl = document.getElementById('incorrect-score');
-const questionTextEl = document.getElementById('question-text');
-const optionsContainerEl = document.getElementById('options-container');
-const feedbackMessageEl = document.getElementById('feedback-message');
-const explanationTextEl = document.getElementById('explanation-text');
-const nextQuestionBtn = document.getElementById('next-question-btn'); // Se usará en DOMContentLoaded
-const playAgainBtn = document.getElementById('play-again-btn'); // Se usará en DOMContentLoaded
-const finalCorrectEl = document.getElementById('final-correct');
-const finalIncorrectEl = document.getElementById('final-incorrect');
+// Estas variables se asignarán dentro de DOMContentLoaded para asegurar que los elementos existen
+let startGameBtn, questionCounterEl, correctScoreEl, incorrectScoreEl, questionTextEl, optionsContainerEl,
+    feedbackMessageEl, explanationTextEl, nextQuestionBtn, playAgainBtn, finalCorrectEl, finalIncorrectEl;
 
+/**
+ * Asigna los elementos del DOM a las variables globales.
+ * Se llama DESPUÉS de que el DOM esté cargado.
+ */
+function assignDOMelements() {
+    startGameBtn = document.getElementById('start-game-btn');
+    questionCounterEl = document.getElementById('question-counter');
+    correctScoreEl = document.getElementById('correct-score');
+    incorrectScoreEl = document.getElementById('incorrect-score');
+    questionTextEl = document.getElementById('question-text');
+    optionsContainerEl = document.getElementById('options-container');
+    feedbackMessageEl = document.getElementById('feedback-message');
+    explanationTextEl = document.getElementById('explanation-text');
+    nextQuestionBtn = document.getElementById('next-question-btn');
+    playAgainBtn = document.getElementById('play-again-btn');
+    finalCorrectEl = document.getElementById('final-correct');
+    finalIncorrectEl = document.getElementById('final-incorrect');
 
-// --- Todas tus funciones del juego (loadQuestions, selectNewQuestions, startGame, displayQuestion, handleAnswer, nextQuestion, updateScoreDisplay, endGame) deben estar definidas ANTES del bloque DOMContentLoaded ---
-// ... (Pega aquí todas tus funciones del juego como las tenías en la última versión funcional)
+    // Log para verificar si los botones se encuentran
+    console.log("startGameBtn:", startGameBtn);
+    console.log("nextQuestionBtn:", nextQuestionBtn);
+    console.log("playAgainBtn:", playAgainBtn);
+}
+
 
 /**
  * Carga las preguntas desde la constante allQuestions combinada.
@@ -72,10 +98,7 @@ function loadQuestions() {
 }
 
 /**
- * Selecciona un nuevo conjunto de preguntas para una partida,
- * garantizando al menos una pregunta de cada unidad y aleatoriedad.
- * Intenta evitar repetir preguntas de la partida inmediatamente anterior.
- * @returns {Array<Object>} Un array de objetos de pregunta, o un array vacío si no se cumplen las condiciones.
+ * Selecciona un nuevo conjunto de preguntas para una partida.
  */
 function selectNewQuestions() {
     console.log("Seleccionando nuevas preguntas...");
@@ -144,6 +167,9 @@ function selectNewQuestions() {
     return finalShuffledSet.slice(0, TOTAL_QUESTIONS_PER_GAME); 
 }
 
+/**
+ * Inicia una nueva partida.
+ */
 function startGame() {
     console.log("Intentando iniciar juego...");
     gameState.currentQuestionIndex = 0;
@@ -192,6 +218,9 @@ function startGame() {
     updateScoreDisplay();
 }
 
+/**
+ * Muestra la pregunta actual.
+ */
 function displayQuestion() {
     if (!gameState.currentQuestionSet || gameState.currentQuestionSet.length === 0 || gameState.currentQuestionIndex >= gameState.currentQuestionSet.length) {
         endGame();
@@ -237,6 +266,9 @@ function displayQuestion() {
     });
 }
 
+/**
+ * Maneja la respuesta del usuario.
+ */
 function handleAnswer(selectedIndex) {
     if (gameState.gamePhase !== 'playing') return; 
 
@@ -281,6 +313,9 @@ function handleAnswer(selectedIndex) {
     updateScoreDisplay(); 
 }
 
+/**
+ * Avanza a la siguiente pregunta.
+ */
 function nextQuestion() {
     clearTimeout(gameState.timerId); 
     gameState.currentQuestionIndex++;
@@ -291,11 +326,17 @@ function nextQuestion() {
     }
 }
 
+/**
+ * Actualiza la visualización de la puntuación.
+ */
 function updateScoreDisplay() {
     correctScoreEl.textContent = gameState.scoreCorrect.toString();
     incorrectScoreEl.textContent = gameState.scoreIncorrect.toString();
 }
 
+/**
+ * Finaliza la partida.
+ */
 function endGame() {
     gameState.gamePhase = 'end';
     gameScreen.classList.add('hidden'); 
@@ -310,6 +351,8 @@ function endGame() {
 // Carga inicial y configuración
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("DOM completamente cargado y procesado.");
+    assignDOMelements(); // Asignar elementos del DOM aquí
+
     try {
         await loadQuestions(); 
         
@@ -325,7 +368,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return; 
         }
         
-        // Mover la asignación de event listeners aquí, DESPUÉS de que los elementos del DOM están garantizados y las preguntas cargadas.
         if (startGameBtn) {
             console.log("Añadiendo event listener al botón de inicio.");
             startGameBtn.addEventListener('click', startGame);
@@ -334,12 +376,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (nextQuestionBtn) {
+            console.log("Añadiendo event listener al botón Siguiente Pregunta.");
             nextQuestionBtn.addEventListener('click', nextQuestion);
         } else {
             console.error("El botón 'Siguiente Pregunta' (nextQuestionBtn) no se encontró en el DOM.");
         }
 
         if (playAgainBtn) {
+            console.log("Añadiendo event listener al botón Jugar de Nuevo.");
             playAgainBtn.addEventListener('click', () => {
                 startGame();
             });
