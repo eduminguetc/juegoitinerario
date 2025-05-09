@@ -363,4 +363,3 @@ export const unit5Questions = [
             "explanation": "El empresario tiene la obligación de comunicar a los servicios públicos de empleo correspondientes la formalización del contrato, en un plazo de diez días tras su celebración."
         }
     ]
-}
